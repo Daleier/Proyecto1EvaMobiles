@@ -10,7 +10,6 @@ import android.widget.TextView;
  */
 
 public class BusquedaComponentes extends AppCompatActivity {
-
     TextView nombre;
     TextView login;
     TextView password;

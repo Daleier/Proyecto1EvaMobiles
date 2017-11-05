@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         xestionarEventos();
     }
 
-
     private void copiarBD() {
         String bddestino = "/data/data/" + getPackageName() + "/databases/"
                 + appcomponentes.NOME_BD;
@@ -47,27 +46,22 @@ public class MainActivity extends AppCompatActivity {
             return; // XA EXISTE A BASE DE DATOS
         }
 
-
         String pathbd = "/data/data/" + getPackageName()
                 + "/databases/";
         File filepathdb = new File(pathbd);
         filepathdb.mkdirs();
-
 
         InputStream inputstream;
         try {
             inputstream = getAssets().open(appcomponentes.NOME_BD);
             OutputStream outputstream = new FileOutputStream(bddestino);
 
-
             int tamread;
             byte[] buffer = new byte[2048];
-
 
             while ((tamread = inputstream.read(buffer)) > 0) {
                 outputstream.write(buffer, 0, tamread);
             }
-
 
             inputstream.close();
             outputstream.flush();
@@ -77,10 +71,7 @@ public class MainActivity extends AppCompatActivity {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-
     }
-
 
     private void xestionarEventos() {
         Button btnAbrirBD = (Button) findViewById(R.id.login_button);

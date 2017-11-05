@@ -31,6 +31,7 @@ public class UsuarioDAOSQLite implements UsuarioDAO {
         }
         return resultado;
     }
+
     void depuracion(String consulta, String[] param) {
         String texto = "Consulta: " + consulta + " Valores: ";
         for (String p : param) {
@@ -38,4 +39,5 @@ public class UsuarioDAOSQLite implements UsuarioDAO {
         }
         Log.d("DEPURACIÓN", texto);
     }
+
 }
