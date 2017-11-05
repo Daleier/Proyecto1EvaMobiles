@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">29BPDJ - Proyecto1Eva</string>
+    <string name="toast_bd_existente">A BD NON SE VAI COPIAR. XA EXISTE</string>
+    <string name="toast_bd_copiada">BASE DE DATOS COPIADA</string>
+    <string name="toast_login">Iniciando sesión.</string>
+    <string name="dialogo_titulo">29BPDJ - No se pudo iniciar la sesión</string>
+    <string name="dialogo_mensaje">El login o el password que has introducido son incorrectos. Compruébalos y vuelve a intentarlo de nuevo.</string>
+    <string name="aceptar">ACEPTAR</string>
+    <string name="iniciar_sesion">Iniciar Sesion</string>
+    <string name="usuario">Usuario</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="identificador">29BPDJ</string>
+    <string name="nombre">Nombre:</string>
+    <string name="password">Password:</string>
+    <string name="login">29BPDJ - Login:</string>
+    <string name="id">ID:</string>
+
+
+</resources>
