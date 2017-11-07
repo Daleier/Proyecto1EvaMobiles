@@ -18,7 +18,7 @@ public class BusquedaComponentes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buscar_vuelos);
+        setContentView(R.layout.activity_buscar_componentes);
         Intent intent = getIntent();
         String nuevoTitulo= getString(R.string.identificador)
                 +": "+intent.getExtras().getString(MainActivity.NOMBRE);
@@ -28,10 +28,10 @@ public class BusquedaComponentes extends AppCompatActivity {
     }
 
     private void iniciarVariables() {
-        nombre = (TextView) findViewById (R.id.nombre);
-        login = (TextView) findViewById(R.id.login);
-        password = (TextView) findViewById(R.id.password);
-        usr_id = (TextView) findViewById(R.id.user_id);
+        nombre = findViewById (R.id.nombre);
+        login = findViewById(R.id.login);
+        password = findViewById(R.id.password);
+        usr_id = findViewById(R.id.user_id);
     }
 
     private void completarCampos(Intent intent) {

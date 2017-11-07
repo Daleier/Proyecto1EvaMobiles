@@ -19,7 +19,7 @@ import java.io.OutputStream;
 
 
 public class MainActivity extends AppCompatActivity {
-    private appcomponentes appv;
+    private Appcomponentes appv;
     public static String NOMBRE = "nombre";
     public static String ID = "id";
     public static String LOGIN = "login";
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void copiarBD() {
         String bddestino = "/data/data/" + getPackageName() + "/databases/"
-                + appcomponentes.NOME_BD;
+                + Appcomponentes.NOME_BD;
         File file = new File(bddestino);
         Log.d("DEPURACIÓN", "Ruta archivo BD: " + bddestino);
         if (file.exists()) {
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         InputStream inputstream;
         try {
-            inputstream = getAssets().open(appcomponentes.NOME_BD);
+            inputstream = getAssets().open(Appcomponentes.NOME_BD);
             OutputStream outputstream = new FileOutputStream(bddestino);
 
             int tamread;
@@ -74,12 +74,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void xestionarEventos() {
-        Button btnAbrirBD = (Button) findViewById(R.id.login_button);
+        Button btnAbrirBD = findViewById(R.id.login_button);
         btnAbrirBD.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 iniciarSesion();
+            }
+        });
+
+        Button btnNuevoUsuario = findViewById(R.id.signup_button);
+        btnNuevoUsuario.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                nuevoUsuario();
             }
         });
     }
@@ -91,16 +100,16 @@ public class MainActivity extends AppCompatActivity {
 
         if (usr != null) {
             Log.d("DEPURACIÓN", "Nombre usr: "+ usr.getNombre());
-            this.NOMBRE = usr.getNombre();
-            this.ID = Integer.toString(usr.getId());
-            this.LOGIN = usr.getLogin();
-            this.PASSWORD = usr.getPassword();
+            NOMBRE = usr.getNombre();
+            ID = Integer.toString(usr.getId());
+            LOGIN = usr.getLogin();
+            PASSWORD = usr.getPassword();
             Toast.makeText(getApplicationContext(),R.string.toast_login, Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, BusquedaComponentes.class);
-            intent.putExtra(this.NOMBRE, usr.getNombre());
-            intent.putExtra(this.ID, Integer.toString(usr.getId()));
-            intent.putExtra(this.PASSWORD, usr.getPassword());
-            intent.putExtra(this.LOGIN, usr.getLogin());
+            intent.putExtra(NOMBRE, usr.getNombre());
+            intent.putExtra(ID, Integer.toString(usr.getId()));
+            intent.putExtra(PASSWORD, usr.getPassword());
+            intent.putExtra(LOGIN, usr.getLogin());
             startActivity(intent);
             finish();
         } else {
@@ -110,4 +119,14 @@ public class MainActivity extends AppCompatActivity {
             d.show(fm,"errorLogin");
         }
     }
+
+    void nuevoUsuario(){
+
+        Toast.makeText(getApplicationContext(), "Formulario de registro de nuevo usuario.", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, NuevoUsuario.class);
+        startActivity(intent);
+        // No se finaliza la Activity en este caso.
+    }
+
+
 }
