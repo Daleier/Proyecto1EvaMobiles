@@ -37,7 +37,7 @@ public class BusquedaComponentes extends AppCompatActivity {
         email = findViewById(R.id.email);
         direccion = findViewById(R.id.direccion);
         subscripcion = findViewById(R.id.subscripcion);
-        usr_id = findViewById(R.id.user_id);
+        usr_id = findViewById(R.id.usr_id);
     }
 
     private void completarCampos(Intent intent) {
@@ -46,7 +46,7 @@ public class BusquedaComponentes extends AppCompatActivity {
         password.setText(intent.getExtras().getString(MainActivity.PASSWORD));
         email.setText((intent.getExtras().getString(MainActivity.EMAIL)));
         direccion.setText((intent.getExtras().getString(MainActivity.DIRECCION)));
-        subscripcion.setText((intent.getExtras().getString(MainActivity.SUBSCRIPCION)));
+        subscripcion.setText((intent.getExtras().getString(MainActivity.SUBSCRIPCION.toString())));
         usr_id.setText((intent.getExtras().getString(MainActivity.ID)));
     }
 }

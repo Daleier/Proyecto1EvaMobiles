@@ -28,7 +28,7 @@ public class UsuarioDAOSQLite implements UsuarioDAO {
         Log.d("DEPURACIÓN", "Nº filas: " + cursor.getCount());
         if (cursor.moveToFirst()) {
             resultado = new Usuario(cursor.getString(0), cursor.getString(1), cursor.getString(2),
-                    cursor.getString(3), cursor.getString(4), cursor.getInt(5) > 0,cursor.getInt(6));
+                    cursor.getString(3), cursor.getString(4), cursor.getInt(5) > 0, cursor.getInt(6));
         }
         return resultado;
     }

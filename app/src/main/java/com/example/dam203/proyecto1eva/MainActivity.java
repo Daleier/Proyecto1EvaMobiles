@@ -105,13 +105,13 @@ public class MainActivity extends AppCompatActivity {
         if (usr != null) {
             Log.d("DEPURACIÓN", "Nombre usr: "+ usr.getNombre());
             // asigna valores campos usuarios
-            NOMBRE = usr.getNombre();
-            LOGIN = usr.getLogin();
-            PASSWORD = usr.getPassword();
-            EMAIL = usr.getEmail();
-            DIRECCION = usr.getDireccion();
-            SUBSCRIPCION = Boolean.toString(usr.getSubscripcion());
-            ID = Integer.toString(usr.getId());
+//            NOMBRE = usr.getNombre();
+//            LOGIN = usr.getLogin();
+//            PASSWORD = usr.getPassword();
+//            EMAIL = usr.getEmail();
+//            DIRECCION = usr.getDireccion();
+//            SUBSCRIPCION = Boolean.toString(usr.getSubscripcion());
+//            ID = Integer.toString(usr.getId());
             Toast.makeText(getApplicationContext(),R.string.toast_login, Toast.LENGTH_LONG).show();
 
             // crea nuevo intent
@@ -119,9 +119,9 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(NOMBRE, usr.getNombre());
             intent.putExtra(LOGIN, usr.getLogin());
             intent.putExtra(PASSWORD, usr.getPassword());
-            intent.putExtra(EMAIL, usr.getPassword());
+            intent.putExtra(EMAIL, usr.getEmail());
             intent.putExtra(DIRECCION, usr.getDireccion());
-            intent.putExtra(SUBSCRIPCION, usr.getSubscripcion());
+            intent.putExtra(SUBSCRIPCION, Boolean.toString(usr.getSubscripcion()));
             intent.putExtra(ID, Integer.toString(usr.getId()));
 
             startActivity(intent);
