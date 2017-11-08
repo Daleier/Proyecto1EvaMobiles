@@ -16,6 +16,11 @@
     <string name="id">ID</string>
     <string name="crear_cuenta">Crear Nueva Cuenta</string>
     <string name="registrar">Registrar</string>
+    <string name="titulo_crear_usuario">Registar</string>
+    <string name="email">Email</string>
+    <string name="direccion">Direccion</string>
+    <string name="subscripcion">Subscripcion</string>
+    <string name="subscripcion_novedades">Deseo registrarme al boletin de novedades.</string>
 
 
 </resources>

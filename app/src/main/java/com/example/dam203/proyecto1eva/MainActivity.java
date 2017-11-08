@@ -21,9 +21,13 @@ import java.io.OutputStream;
 public class MainActivity extends AppCompatActivity {
     private Appcomponentes appv;
     public static String NOMBRE = "nombre";
-    public static String ID = "id";
     public static String LOGIN = "login";
     public static String PASSWORD = "password";
+    public static String EMAIL = "email";
+    public static String DIRECCION = "direccion";
+    public static String SUBSCRIPCION = "subscripcion";
+    public static String ID = "id";
+
     Usuario usuario;
     UsuarioDAOSQLite usrDAO;
 
@@ -100,16 +104,26 @@ public class MainActivity extends AppCompatActivity {
 
         if (usr != null) {
             Log.d("DEPURACIÓN", "Nombre usr: "+ usr.getNombre());
+            // asigna valores campos usuarios
             NOMBRE = usr.getNombre();
-            ID = Integer.toString(usr.getId());
             LOGIN = usr.getLogin();
             PASSWORD = usr.getPassword();
+            EMAIL = usr.getEmail();
+            DIRECCION = usr.getDireccion();
+            SUBSCRIPCION = Boolean.toString(usr.getSubscripcion());
+            ID = Integer.toString(usr.getId());
             Toast.makeText(getApplicationContext(),R.string.toast_login, Toast.LENGTH_LONG).show();
+
+            // crea nuevo intent
             Intent intent = new Intent(this, BusquedaComponentes.class);
             intent.putExtra(NOMBRE, usr.getNombre());
-            intent.putExtra(ID, Integer.toString(usr.getId()));
-            intent.putExtra(PASSWORD, usr.getPassword());
             intent.putExtra(LOGIN, usr.getLogin());
+            intent.putExtra(PASSWORD, usr.getPassword());
+            intent.putExtra(EMAIL, usr.getPassword());
+            intent.putExtra(DIRECCION, usr.getDireccion());
+            intent.putExtra(SUBSCRIPCION, usr.getSubscripcion());
+            intent.putExtra(ID, Integer.toString(usr.getId()));
+
             startActivity(intent);
             finish();
         } else {

@@ -27,7 +27,8 @@ public class UsuarioDAOSQLite implements UsuarioDAO {
         this.depuracion(consulta, param);
         Log.d("DEPURACIÓN", "Nº filas: " + cursor.getCount());
         if (cursor.moveToFirst()) {
-            resultado = new Usuario(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getInt(3));
+            resultado = new Usuario(cursor.getString(0), cursor.getString(1), cursor.getString(2),
+                    cursor.getString(3), cursor.getString(4), cursor.getInt(5) > 0,cursor.getInt(6));
         }
         return resultado;
     }
@@ -43,12 +44,16 @@ public class UsuarioDAOSQLite implements UsuarioDAO {
     public boolean insertarUsuario(Usuario usr) {
         boolean resultado = true;
         SQLiteDatabase sqlLiteDB = appv.getWritableDatabase();
-        String sql = "INSERT INTO Usuario (nombre, login, password) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO Usuarios (nombre, login, password, email, direccion, subscripcion) VALUES (?, ?, ?, ?, ?, ?)";
         SQLiteStatement statement = sqlLiteDB.compileStatement(sql);
 
         statement.bindString(1, usr.getNombre());
         statement.bindString(2, usr.getLogin());
         statement.bindString(3, usr.getPassword());
+        statement.bindString(4, usr.getEmail());
+        statement.bindString(5, usr.getDireccion());
+        statement.bindString(6, String.valueOf(usr.getSubscripcion()));
+
 
         long rowId = statement.executeInsert();
 
@@ -56,10 +61,11 @@ public class UsuarioDAOSQLite implements UsuarioDAO {
             //Comprobación de la lista de usuarios. El siguiente código tiene como finalidad
             //mostrar en el logcat el usuario que se acaba de insertar.
             String usuarios = "";
-            Cursor cursor = sqlLiteDB.rawQuery("select * from Usuario", null);
+            Cursor cursor = sqlLiteDB.rawQuery("select * from Usuarios", null);
             if (cursor.moveToFirst()) {
                 while (!cursor.isAfterLast()) {
-                    usuarios += " || " + cursor.getString(0) + " " + cursor.getString(1) + " " + cursor.getString(2) + " " + cursor.getString(3);
+                    usuarios += " || " + cursor.getString(0) + " " + cursor.getString(1) + " " + cursor.getString(2) + " " + cursor.getString(3)
+                    + " " + cursor.getString(4) + " " + cursor.getString(5) +" " + cursor.getString(6);
                     cursor.moveToNext();
                 }
             }

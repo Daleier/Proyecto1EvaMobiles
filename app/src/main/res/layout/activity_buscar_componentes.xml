@@ -41,14 +41,49 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/view_id"
-        android:text="@string/id"
+        android:id="@+id/view_email"
+        android:text="@string/email"
         android:layout_below="@id/password"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/user_id"
-        android:layout_below="@id/view_id"/>
+        android:id="@+id/email"
+        android:layout_below="@id/view_email"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view_direccion"
+        android:text="@string/direccion"
+        android:layout_below="@id/email"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/direccion"
+        android:layout_below="@id/view_direccion"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view_subscripcion"
+        android:text="@string/subscripcion"
+        android:layout_below="@id/direccion"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/subscripcion"
+        android:layout_below="@id/view_subscripcion"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view_id"
+        android:text="@string/id"
+        android:layout_below="@id/subscripcion"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/usr_id"
+        android:layout_below="@id/view_id"/>
 
 </RelativeLayout>

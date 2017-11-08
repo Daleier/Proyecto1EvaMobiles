@@ -5,13 +5,17 @@ package com.example.dam203.proyecto1eva;
  */
 
 public class Usuario {
-    String nombre, login, password;
+    String nombre, login, password, email, direccion;
+    boolean subscripcion;
     int id;
 
-    public Usuario(String nombre, String login, String password, int id) {
+    public Usuario(String nombre, String login, String password, String email, String direccion, boolean subscripcion, int id) {
         this.nombre = nombre;
         this.login = login;
         this.password = password;
+        this.email = email;
+        this.direccion = direccion;
+        this.subscripcion = subscripcion;
         this.id = id;
     }
 
@@ -45,5 +49,29 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public boolean getSubscripcion() {
+        return subscripcion;
+    }
+
+    public void setSubscripcion(boolean subscripcion) {
+        this.subscripcion = subscripcion;
     }
 }

@@ -23,13 +23,37 @@
         android:layout_height="wrap_content"
         android:id="@+id/registro_password"
         android:hint="@string/password"
-        android:layout_below="@id/registro_login"/>
+        android:layout_below="@id/registro_login"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registro_email"
+        android:hint="@string/email"
+        android:layout_below="@id/registro_password"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registro_direccion"
+        android:hint="@string/direccion"
+        android:layout_below="@id/registro_email" />
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registro_subscripcion"
+        android:text="@string/subscripcion_novedades"
+        android:layout_below="@id/registro_direccion"
+        android:onClick="comprobarSubscripcion"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/crear_usuario"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/registro_password"
+        android:layout_below="@id/registro_subscripcion"
         android:text="@string/registrar"/>
 </RelativeLayout>
