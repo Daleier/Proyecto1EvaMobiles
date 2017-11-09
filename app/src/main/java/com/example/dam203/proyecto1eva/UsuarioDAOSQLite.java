@@ -52,7 +52,7 @@ public class UsuarioDAOSQLite implements UsuarioDAO {
         statement.bindString(3, usr.getPassword());
         statement.bindString(4, usr.getEmail());
         statement.bindString(5, usr.getDireccion());
-        statement.bindString(6, String.valueOf(usr.getSubscripcion()));
+        statement.bindString(6, usr.getSubscripcion()? "1":"0");
 
 
         long rowId = statement.executeInsert();

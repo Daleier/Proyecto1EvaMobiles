@@ -34,11 +34,11 @@
         android:layout_below="@id/registro_password"
         android:inputType="textEmailAddress"/>
 
-    <EditText
-        android:layout_width="match_parent"
+    <Spinner
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/registro_direccion"
-        android:hint="@string/direccion"
+        android:entries="@array/paises"
         android:layout_below="@id/registro_email" />
 
     <CheckBox

@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -18,13 +20,14 @@ import android.widget.Toast;
 public class NuevoUsuario extends AppCompatActivity {
     private Appcomponentes appv;
     UsuarioDAOSQLite usrDAO;
-    private boolean subscripcion = false;
+    private boolean subscripcion ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo_usuario);
         setTitle(R.string.titulo_crear_usuario);
+        subscripcion = false;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.usrDAO = new UsuarioDAOSQLite(this);
         xestionarEventos();
@@ -54,7 +57,7 @@ public class NuevoUsuario extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+
                 crearUsuario();
             }
         });
@@ -65,7 +68,7 @@ public class NuevoUsuario extends AppCompatActivity {
         String login = ((EditText) findViewById(R.id.registro_login)).getText().toString();
         String password = ((EditText) findViewById(R.id.registro_password)).getText().toString();
         String email = ((EditText) findViewById(R.id.registro_email)).getText().toString();
-        String direccion = ((EditText) findViewById(R.id.registro_direccion)).getText().toString();
+        String direccion = getDireccion();
 
     	/*Creación el objeto usuario. Dado que id es autoincrementable en la base de datos
     	el valor del campo id no será procesado en el método de inserción de usuario.
@@ -86,7 +89,11 @@ public class NuevoUsuario extends AppCompatActivity {
     public void comprobarSubscripcion(View view) {
         CheckBox checkBox = (CheckBox)view;
         this.subscripcion = checkBox.isChecked();
+    }
 
+    private String getDireccion() {
+        Spinner spinner = findViewById(R.id.registro_direccion);
+        return spinner.getSelectedItem().toString();
     }
 }
 
