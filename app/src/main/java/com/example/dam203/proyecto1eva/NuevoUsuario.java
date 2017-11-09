@@ -63,27 +63,35 @@ public class NuevoUsuario extends AppCompatActivity {
         });
     }
 
-    void crearUsuario() {
-        String nombre = ((EditText) findViewById(R.id.registro_nombre)).getText().toString();
-        String login = ((EditText) findViewById(R.id.registro_login)).getText().toString();
+    boolean crearUsuario() {
+        String nombre = ((EditText) findViewById(R.id.registro_nombre)).getText().toString().trim();
+        String login = ((EditText) findViewById(R.id.registro_login)).getText().toString().trim();
         String password = ((EditText) findViewById(R.id.registro_password)).getText().toString();
-        String email = ((EditText) findViewById(R.id.registro_email)).getText().toString();
+        String email = ((EditText) findViewById(R.id.registro_email)).getText().toString().trim();
         String direccion = getDireccion();
-
-    	/*Creación el objeto usuario. Dado que id es autoincrementable en la base de datos
-    	el valor del campo id no será procesado en el método de inserción de usuario.
-    	Por lo tanto, se le pasará 0, o cualquier otro valor.*/
-        Usuario usr = new Usuario(nombre, login, password, email, direccion, subscripcion,0);
-        boolean insercion = this.usrDAO.insertarUsuario(usr);
-        //Notificación de la inserción.
-        if (insercion)
-            Toast.makeText(getApplicationContext(), "Nuevo usuario registrado.", Toast.LENGTH_LONG).show();
-        else
-            Toast.makeText(getApplicationContext(), "Error en el registro de usuario.", Toast.LENGTH_LONG).show();
-        //Ir a la ventana de inicio de sesión y finalizar la Activity.
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
+        if (!validarDireccion(direccion)) {
+            return false;
+        }
+        if (validarRegistro(nombre, login, password, email)) {
+            /*Creación el objeto usuario. Dado que id es autoincrementable en la base de datos
+            el valor del campo id no será procesado en el método de inserción de usuario.
+            Por lo tanto, se le pasará 0, o cualquier otro valor.*/
+            Usuario usr = new Usuario(nombre, login, password, email, direccion, subscripcion, 0);
+            boolean insercion = this.usrDAO.insertarUsuario(usr);
+            //Notificación de la inserción.
+            if (insercion)
+                Toast.makeText(getApplicationContext(), "Nuevo usuario registrado.", Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(getApplicationContext(), "Error en el registro de usuario.", Toast.LENGTH_LONG).show();
+            //Ir a la ventana de inicio de sesión y finalizar la Activity.
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }else{
+            RegistroDialogo d= new RegistroDialogo();
+            return false;
+        }
     }
 
     public void comprobarSubscripcion(View view) {
@@ -94,6 +102,20 @@ public class NuevoUsuario extends AppCompatActivity {
     private String getDireccion() {
         Spinner spinner = findViewById(R.id.registro_direccion);
         return spinner.getSelectedItem().toString();
+    }
+
+    private boolean validarRegistro(String nombre, String login, String password, String email){
+        return !(nombre.isEmpty() || login.isEmpty() || password.isEmpty() || email.isEmpty());
+    }
+
+    private boolean validarDireccion(String direccion){
+        if(direccion.equals("Direccion")) {
+            DireccionRegistro d = new DireccionRegistro();
+            //TODO faltan 2 lineas
+            return false;
+        }else{
+            return true;
+        }
     }
 }
 
