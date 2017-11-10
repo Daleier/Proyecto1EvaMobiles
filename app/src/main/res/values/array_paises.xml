@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="paises">
-        <item>Direccion</item>
+        <item>@string/direccion</item>
         <item>España</item>
         <item>Francia</item>
         <item>UK</item>

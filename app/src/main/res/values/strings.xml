@@ -16,7 +16,7 @@
     <string name="id">ID</string>
     <string name="crear_cuenta">Crear Nueva Cuenta</string>
     <string name="registrar">Registrar</string>
-    <string name="titulo_crear_usuario">Registar</string>
+    <string name="titulo_crear_usuario">29BPDJ - Registar</string>
     <string name="email">Email</string>
     <string name="direccion">Direccion</string>
     <string name="subscripcion">Subscripcion</string>
@@ -25,5 +25,9 @@
     <string name="campos_registro_vacios">Debes completar todos los campos del formulario para realizar el registro.</string>
     <string name="titulo_direccion_invalida">Selecciona un país.</string>
     <string name="direccion_invalida">Debes seleccionar un pais de residencia.</string>
+    <string name="titulo_password_invalida">Contraseña no válida.</string>
+    <string name="password_invalida">La contraseña debe contener un minimo de 6 caracteres.</string>
+    <string name="registro_exitoso">29BPDJ - Nuevo usuario registrado.</string>
+    <string name="registro_fallido">29BPDJ - Error en el registro de usuario.</string>
 
 </resources>

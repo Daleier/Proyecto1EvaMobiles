@@ -69,7 +69,7 @@ public class UsuarioDAOSQLite implements UsuarioDAO {
                     cursor.moveToNext();
                 }
             }
-            Log.d("DEPURACIÓN", "Resultado inserción: " + usuarios);
+            Log.d("DEPURACIÓN", "Resultado inserción 29BPDJ: " + usuarios);
             Log.d("DEPURACIÓN", "Row ID: " + rowId);
         } else {
             resultado = false;
