@@ -32,7 +32,8 @@
         android:id="@+id/registro_email"
         android:hint="@string/email"
         android:layout_below="@id/registro_password"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        />
 
     <Spinner
         android:layout_width="wrap_content"

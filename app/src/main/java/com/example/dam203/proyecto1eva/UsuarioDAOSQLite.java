@@ -64,7 +64,7 @@ public class UsuarioDAOSQLite implements UsuarioDAO {
             Cursor cursor = sqlLiteDB.rawQuery("select * from Usuarios", null);
             if (cursor.moveToFirst()) {
                 while (!cursor.isAfterLast()) {
-                    usuarios += " || " + cursor.getString(0) + " " + cursor.getString(1) + " " + cursor.getString(2) + " " + cursor.getString(3)
+                    usuarios += " \n " + cursor.getString(0) + " " + cursor.getString(1) + " " + cursor.getString(2) + " " + cursor.getString(3)
                     + " " + cursor.getString(4) + " " + cursor.getString(5) +" " + cursor.getString(6);
                     cursor.moveToNext();
                 }
