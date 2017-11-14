@@ -17,14 +17,16 @@ public class BusquedaComponentes extends AppCompatActivity {
     TextView direccion;
     TextView subscripcion;
     TextView usr_id;
+    Usuario usr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_componentes);
         Intent intent = getIntent();
+        usr = (Usuario) intent.getSerializableExtra("USUARIO");
         String nuevoTitulo= getString(R.string.identificador)
-                +": "+intent.getExtras().getString(MainActivity.NOMBRE);
+                +": "+usr.getNombre();
         setTitle(nuevoTitulo);
         iniciarVariables();
         completarCampos(intent);
@@ -41,12 +43,11 @@ public class BusquedaComponentes extends AppCompatActivity {
     }
 
     private void completarCampos(Intent intent) {
-        nombre.setText(intent.getExtras().getString(MainActivity.NOMBRE));
-        login.setText(intent.getExtras().getString(MainActivity.LOGIN));
-        password.setText(intent.getExtras().getString(MainActivity.PASSWORD));
-        email.setText((intent.getExtras().getString(MainActivity.EMAIL)));
-        direccion.setText((intent.getExtras().getString(MainActivity.DIRECCION)));
-        subscripcion.setText((intent.getExtras().getString(MainActivity.SUBSCRIPCION.toString())));
-        usr_id.setText((intent.getExtras().getString(MainActivity.ID)));
+        login.setText(usr.getLogin());
+        password.setText(usr.getPassword());
+        email.setText(usr.getEmail());
+        direccion.setText(usr.getDireccion());
+        subscripcion.setText(Boolean.toString(usr.getSubscripcion()));
+        usr_id.setText(Integer.toString(usr.getId()));
     }
 }

@@ -20,13 +20,6 @@ import java.io.OutputStream;
 
 public class MainActivity extends AppCompatActivity {
     private Appcomponentes appv;
-    public static String NOMBRE = "nombre";
-    public static String LOGIN = "login";
-    public static String PASSWORD = "password";
-    public static String EMAIL = "email";
-    public static String DIRECCION = "direccion";
-    public static String SUBSCRIPCION = "subscripcion";
-    public static String ID = "id";
 
     Usuario usuario;
     UsuarioDAOSQLite usrDAO;
@@ -116,14 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
             // crea nuevo intent
             Intent intent = new Intent(this, BusquedaComponentes.class);
-            intent.putExtra(NOMBRE, usr.getNombre());
-            intent.putExtra(LOGIN, usr.getLogin());
-            intent.putExtra(PASSWORD, usr.getPassword());
-            intent.putExtra(EMAIL, usr.getEmail());
-            intent.putExtra(DIRECCION, usr.getDireccion());
-            intent.putExtra(SUBSCRIPCION, Boolean.toString(usr.getSubscripcion()));
-            intent.putExtra(ID, Integer.toString(usr.getId()));
-
+            intent.putExtra("USUARIO", usr);
             startActivity(intent);
             finish();
         } else {

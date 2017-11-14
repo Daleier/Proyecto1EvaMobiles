@@ -1,10 +1,12 @@
 package com.example.dam203.proyecto1eva;
 
+import java.io.Serializable;
+
 /**
  * Created by dam203 on 31/10/2017.
  */
 
-public class Usuario {
+public class Usuario implements  Serializable {
     String nombre, login, password, email, direccion;
     boolean subscripcion;
     int id;
