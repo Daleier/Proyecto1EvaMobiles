@@ -1,4 +1,4 @@
-package com.example.dam203.proyecto1eva;
+package com.example.dam203.proyecto1eva.aplicacion;
 
 import java.io.Serializable;
 

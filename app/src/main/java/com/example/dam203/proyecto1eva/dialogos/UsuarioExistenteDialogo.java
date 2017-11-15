@@ -1,4 +1,4 @@
-package com.example.dam203.proyecto1eva;
+package com.example.dam203.proyecto1eva.dialogos;
 
 /**
  * Created by dam203 on 15/11/2017.
@@ -10,6 +10,8 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+
+import com.example.dam203.proyecto1eva.R;
 
 public class UsuarioExistenteDialogo extends DialogFragment {
     @Override

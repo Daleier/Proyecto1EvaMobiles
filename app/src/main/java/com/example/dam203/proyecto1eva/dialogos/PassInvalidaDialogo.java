@@ -1,7 +1,7 @@
-package com.example.dam203.proyecto1eva;
+package com.example.dam203.proyecto1eva.dialogos;
 
 /**
- * Created by dam203 on 31/10/2017.
+ * Created by dam203 on 10/11/2017.
  */
 
 import android.app.AlertDialog;
@@ -12,13 +12,16 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.widget.Toast;
 
-public class MensajeDialogo extends DialogFragment {
+import com.example.dam203.proyecto1eva.R;
+
+public class PassInvalidaDialogo extends DialogFragment {
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
-                .setTitle(R.string.dialogo_titulo).setIcon(android.R.drawable.ic_dialog_alert)
-                .setMessage(R.string.dialogo_mensaje)
+                .setTitle(R.string.titulo_password_invalida).setIcon(android.R.drawable.ic_dialog_alert)
+                .setMessage(R.string.password_invalida)
                 .setPositiveButton(R.string.aceptar, new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

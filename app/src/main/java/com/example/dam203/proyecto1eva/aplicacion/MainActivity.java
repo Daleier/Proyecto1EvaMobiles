@@ -1,4 +1,4 @@
-package com.example.dam203.proyecto1eva;
+package com.example.dam203.proyecto1eva.aplicacion;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.dam203.proyecto1eva.R;
+import com.example.dam203.proyecto1eva.dialogos.MensajeDialogo;
 
 import java.io.File;
 import java.io.FileOutputStream;

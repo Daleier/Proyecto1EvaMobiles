@@ -1,4 +1,4 @@
-package com.example.dam203.proyecto1eva;
+package com.example.dam203.proyecto1eva.aplicacion;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteConstraintException;
@@ -14,6 +14,12 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.dam203.proyecto1eva.R;
+import com.example.dam203.proyecto1eva.dialogos.DireccionInvalidaDialogo;
+import com.example.dam203.proyecto1eva.dialogos.PassInvalidaDialogo;
+import com.example.dam203.proyecto1eva.dialogos.RegistroDialogo;
+import com.example.dam203.proyecto1eva.dialogos.UsuarioExistenteDialogo;
 
 /**
  * Created by dam203 on 07/11/2017.
