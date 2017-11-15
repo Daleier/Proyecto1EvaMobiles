@@ -70,10 +70,17 @@ public class NuevoUsuario extends AppCompatActivity {
                         crearUsuario(nombre, login, password, email, direccion);
                     }catch (SQLiteConstraintException ex){
                         Log.d("DEPURACIÓN", "Usuario ya existe en la DB.");
+                        crearDialogUsuarioExistente();
                     }
                 }
             }
         });
+    }
+
+    private void crearDialogUsuarioExistente(){
+        UsuarioExistenteDialogo d = new UsuarioExistenteDialogo();
+        FragmentManager fm = this.getSupportFragmentManager();
+        d.show(fm, "Usuario ya existe");
     }
 
     void crearUsuario(String nombre, String login, String password, String email, String direccion) {

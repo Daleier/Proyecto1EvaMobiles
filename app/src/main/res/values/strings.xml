@@ -31,4 +31,6 @@
     <string name="registro_fallido">29BPDJ - Error en el registro de usuario.</string>
     <string name="editar_perfil">Editar perfil</string>
     <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="titulo_usuario_existente">Usuario ya existe</string>
+    <string name="usuario_existente">El usuario que has introducido ya existe.</string>
 </resources>
