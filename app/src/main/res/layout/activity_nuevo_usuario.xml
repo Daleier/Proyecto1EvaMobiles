@@ -46,7 +46,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/registro_direccion"
         android:entries="@array/paises"
-        android:layout_below="@id/registro_email" />
+        android:layout_below="@id/registro_email"
+        android:spinnerMode="dialog"/>
 
     <CheckBox
         android:layout_width="match_parent"
