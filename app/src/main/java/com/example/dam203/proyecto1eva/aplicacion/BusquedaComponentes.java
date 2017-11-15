@@ -29,15 +29,19 @@ public class BusquedaComponentes extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.logout:
                 //Ir a la ventana de inicio de sesión y finalizar la Activity.
-                Intent intent = new Intent(this, MainActivity.class);
+                intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 finish();
                 return true;
             case R.id.editar_perfil:
-                //Código relativo a la edición de perfil de usuario.
+                intent = new Intent(this, MainActivity.class);
+                intent.putExtra(MainActivity.KEY_USUARIO, usr);
+                startActivity(intent);
+                finish();
                 break;
         }
 
