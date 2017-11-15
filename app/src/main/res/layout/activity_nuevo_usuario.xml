@@ -8,6 +8,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/registro_nombre"
         android:hint="@string/usuario"
+        android:inputType="text"
+        android:imeOptions="actionNext"
         />
 
     <EditText
@@ -16,6 +18,8 @@
         android:id="@+id/registro_login"
         android:hint="@string/login"
         android:layout_below="@id/registro_nombre"
+        android:inputType="text"
+        android:imeOptions="actionNext"
         />
 
     <EditText
@@ -24,7 +28,8 @@
         android:id="@+id/registro_password"
         android:hint="@string/password"
         android:layout_below="@id/registro_login"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:imeOptions="actionNext"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -33,6 +38,7 @@
         android:hint="@string/email"
         android:layout_below="@id/registro_password"
         android:inputType="textEmailAddress"
+        android:imeOptions="actionDone"
         />
 
     <Spinner
