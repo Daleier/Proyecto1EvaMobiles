@@ -20,7 +20,7 @@ import java.io.OutputStream;
 
 public class MainActivity extends AppCompatActivity {
     private Appcomponentes appv;
-
+    protected static final String KEY_USUARIO ="USUARIO";
     Usuario usuario;
     UsuarioDAOSQLite usrDAO;
 
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
             // crea nuevo intent
             Intent intent = new Intent(this, BusquedaComponentes.class);
-            intent.putExtra("USUARIO", usr);
+            intent.putExtra(KEY_USUARIO, usr);
             startActivity(intent);
             finish();
         } else {
@@ -128,5 +128,11 @@ public class MainActivity extends AppCompatActivity {
         // No se finaliza la Activity en este caso.
     }
 
-
+    /**
+     * Inicia sesion al pulsar el boton de acción en el campo contraseña del layout
+     * @param view
+     */
+    public void iniciarSesionTeclado(View view) {
+        iniciarSesion();
+    }
 }
