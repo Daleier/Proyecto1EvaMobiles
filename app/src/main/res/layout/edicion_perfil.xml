@@ -7,13 +7,16 @@
         android:id="@+id/view_nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nombre" />
+        android:text="@string/nombre"
+        />
 
-    <TextView
+    <EditText
         android:id="@+id/nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/view_nombre" />
+        android:layout_below="@id/view_nombre"
+        android:imeOptions="actionDone"
+        android:inputType="text"/>
 
     <TextView
         android:id="@+id/view_login"
@@ -22,11 +25,13 @@
         android:layout_below="@id/nombre"
         android:text="@string/login" />
 
-    <TextView
+    <EditText
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/view_login" />
+        android:layout_below="@id/view_login"
+        android:imeOptions="actionDone"
+        android:inputType="text"/>
 
 
     <TextView
@@ -34,13 +39,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/login"
-        android:text="@string/password" />
+        android:text="@string/password"
+        />
 
-    <TextView
+    <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/view_password" />
+        android:layout_below="@id/view_password"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"/>
 
     <TextView
         android:id="@+id/view_email"
@@ -49,11 +57,13 @@
         android:layout_below="@id/password"
         android:text="@string/email" />
 
-    <TextView
+    <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/view_email" />
+        android:layout_below="@id/view_email"
+        android:imeOptions="actionDone"
+        android:inputType="textEmailAddress"/>
 
     <TextView
         android:id="@+id/view_direccion"
@@ -62,36 +72,27 @@
         android:layout_below="@id/email"
         android:text="@string/direccion" />
 
-    <TextView
+    <Spinner
         android:id="@+id/direccion"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/view_direccion" />
+        android:layout_below="@id/view_direccion"
+        android:spinnerMode="dialog"
+        android:entries="@array/paises"
+        />
 
-    <TextView
-        android:id="@+id/view_subscripcion"
+    <CheckBox
+        android:id="@+id/subscripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/direccion"
         android:text="@string/subscripcion" />
 
-    <TextView
-        android:id="@+id/subscripcion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/view_subscripcion" />
-
-    <TextView
-        android:id="@+id/view_id"
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/subscripcion"
-        android:text="@string/id" />
-
-    <TextView
-        android:id="@+id/usr_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/view_id" />
-
+        android:id="@+id/aceptar"
+        android:text="@string/aceptar"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/subscripcion"/>
 </RelativeLayout>

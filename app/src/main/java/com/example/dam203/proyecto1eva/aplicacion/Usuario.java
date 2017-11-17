@@ -7,8 +7,8 @@ import java.io.Serializable;
  */
 
 public class Usuario implements  Serializable {
-    String nombre, login, password, email, direccion;
-    boolean subscripcion;
+    private String nombre, login, password, email, direccion;
+    private boolean subscripcion;
     int id;
 
     public Usuario(String nombre, String login, String password, String email, String direccion, boolean subscripcion, int id) {

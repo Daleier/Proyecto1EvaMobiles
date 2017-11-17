@@ -38,7 +38,7 @@ public class BusquedaComponentes extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.editar_perfil:
-                intent = new Intent(this, MainActivity.class);
+                intent = new Intent(this, EdicionPerfil.class);
                 intent.putExtra(MainActivity.KEY_USUARIO, usr);
                 startActivity(intent);
                 finish();
