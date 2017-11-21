@@ -62,7 +62,6 @@ public class NuevoUsuario extends AppCompatActivity {
     void xestionarEventos() {
         Button btnNuevoUsuario = findViewById(R.id.crear_usuario);
         btnNuevoUsuario.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 String nombre = ((EditText) findViewById(R.id.registro_nombre)).getText().toString().trim();

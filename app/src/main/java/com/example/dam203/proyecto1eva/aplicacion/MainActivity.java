@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
             outputstream.close();
             Toast.makeText(getApplicationContext(),R.string.toast_bd_copiada, Toast.LENGTH_LONG).show();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

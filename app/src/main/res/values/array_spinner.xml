@@ -7,4 +7,10 @@
         <item>UK</item>
         <item>Otro</item>
     </string-array>
+    
+    <string-array name="tipo">
+        <item>TODOS</item>
+        <item>CPU</item>
+        <item>GPU</item>
+    </string-array>
 </resources>

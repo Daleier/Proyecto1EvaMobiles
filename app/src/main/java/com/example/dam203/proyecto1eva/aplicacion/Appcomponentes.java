@@ -13,18 +13,11 @@ public class Appcomponentes extends SQLiteOpenHelper {
 
     public Appcomponentes(Context context) {
         super(context, NOME_BD, null, VERSION_BD);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-        // TODO Auto-generated method stub
-
-    }
+    public void onCreate(SQLiteDatabase db) {}
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // TODO Auto-generated method stub
-
-    }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 }
