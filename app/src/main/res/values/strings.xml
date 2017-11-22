@@ -41,4 +41,7 @@
     <string name="buscar">Buscar</string>
     <string name="opcional">Opcional</string>
     <string name="componentes">Componentes</string>
+    <string name="error_precio_mayor">El precio maximo debe ser mayor que el precio minimo</string>
+    <string name="error_precio_negativo">El precio no puede ser negativo</string>
+    <string name="error_precios">Error conversion precios</string>
 </resources>

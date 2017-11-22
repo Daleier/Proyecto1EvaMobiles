@@ -1,9 +1,6 @@
 package com.example.dam203.proyecto1eva.aplicacion;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.dam203.proyecto1eva.R;
 
@@ -100,11 +98,13 @@ public class BusquedaComponentes extends AppCompatActivity {
             minimo = Double.parseDouble(precio_min.getText().toString().trim());
             maximo = Double.parseDouble(precio_max.getText().toString().trim());
         }catch (Exception ex){
-            //TODO dialogo error conversion
+            Toast.makeText(getApplicationContext(), R.string.error_precios, Toast.LENGTH_LONG).show();
             return false;
         }
-        if(minimo>maximo){
-            //TODO error precio minimo mayor que maximo
+        if(minimo<0 || maximo < 0){ //en teoria este error nunca deberia saltar al usarse un teclado numerico
+            Toast.makeText(getApplicationContext(), R.string.error_precio_negativo, Toast.LENGTH_LONG).show();
+        }else if(minimo>maximo){
+            Toast.makeText(getApplicationContext(), R.string.error_precio_mayor, Toast.LENGTH_LONG).show();
             return false;
         }
         tipo = tipo_componente.getSelectedItem().toString();
@@ -116,7 +116,6 @@ public class BusquedaComponentes extends AppCompatActivity {
         * en ResultadoBusqueda un ListAdapter directametne a partir del
         * resultado de la consulta*/
         String query = "";
-        //TODO añadir consultas a querys
         if(nombre.isEmpty()){ //busqueda sin nombre
             if(tipo.equalsIgnoreCase("TODOS")){
                 query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion, precio||'€' AS precio " +
