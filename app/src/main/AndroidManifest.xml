@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".aplicacion.BusquedaComponentes" />
+        <activity android:name=".aplicacion.ResultadoBusqueda" />
         <activity android:name=".aplicacion.NuevoUsuario" />
         <activity android:name=".aplicacion.EdicionPerfil" />
     </application>

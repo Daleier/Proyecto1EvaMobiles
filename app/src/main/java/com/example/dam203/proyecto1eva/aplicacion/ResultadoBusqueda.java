@@ -34,22 +34,22 @@ public class ResultadoBusqueda extends AppCompatActivity {
         SQLiteDatabase sqlLiteDB = appc.getWritableDatabase();
         Cursor cursor = sqlLiteDB.rawQuery(consulta, null);
         Log.d("DEPURACIÓN", "Nº filas: " + cursor.getCount());
-        ListView resultadoVuelos = findViewById(R.id.listView);
+        ListView resultadoComponentes = findViewById(R.id.listView);
 
         //Añadimos los datos al Adapter y le indicamos donde dibujar cada dato en la fila del Layout
-        String[] desdeEstasColumnas = {"origen", "destino", "hsalida", "hllegada", "duracion", "precio"};
-        int[] aEstasViews = {R.id.origen, R.id.destino, R.id.hora_salida, R.id.hora_llegada, R.id.duracion, R.id.precio};
+        String[] desdeEstasColumnas = {"nombre", "fabricante", "tipo", "descripcion", "precio"};
+        int[] aEstasViews = {R.id.nombre, R.id.fabricante, R.id.tipo, R.id.descripcion, R.id.precio};
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.layout_elemento_lista_resultado, cursor, desdeEstasColumnas, aEstasViews, 0);
-        resultadoVuelos.setAdapter(adapter);
+        resultadoComponentes.setAdapter(adapter);
 
-        //Elemento de título sobre el ListView
-        TextView torigen, tdestino;
-        torigen= findViewById(R.id.torigen);
-        tdestino= findViewById(R.id.tdestino);
-        if (cursor.moveToFirst()){
-            torigen.setText(cursor.getString(cursor.getColumnIndex("origen")));
-            tdestino.setText(cursor.getString(cursor.getColumnIndex("destino")));
-        }
+//        //Elemento de título sobre el ListView
+//        TextView torigen, tdestino;
+//        torigen= findViewById(R.id.tit1);
+//        tdestino= findViewById(R.id.tit2);
+//        if (cursor.moveToFirst()){
+//            torigen.setText(cursor.getString(cursor.getColumnIndex("origen")));
+//            tdestino.setText(cursor.getString(cursor.getColumnIndex("destino")));
+//        }
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -17,20 +17,10 @@
         android:layout_alignParentLeft="true">
 
         <TextView
-            android:id="@+id/torigen"
+            android:id="@+id/tit1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Origen"
-            android:textSize="30sp"
-            android:textColor="#FFFFFF"
-            android:layout_weight="1"/>
-
-
-        <TextView
-            android:id="@+id/tdestino"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Destino"
+            android:text="@string/componentes"
             android:textSize="30sp"
             android:textColor="#FFFFFF"
             android:layout_weight="1"/>

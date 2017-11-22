@@ -10,17 +10,17 @@ import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
 public class UsuarioDAOSQLite implements UsuarioDAO {
-    private Appcomponentes appv;
+    private Appcomponentes appc;
     private Context context;
 
     UsuarioDAOSQLite(Context context){
         this.context=context;
-        this.appv = new Appcomponentes(this.context);
+        this.appc = new Appcomponentes(this.context);
     }
 
     public Usuario getUsuario(String login, String password) {
         Usuario resultado = null;
-        SQLiteDatabase sqlLiteDB = appv.getWritableDatabase();
+        SQLiteDatabase sqlLiteDB = appc.getWritableDatabase();
         String[] param = {login, password};
         String consulta = "SELECT * FROM usuarios WHERE login=? AND password=?";
         Cursor cursor = sqlLiteDB.rawQuery(consulta, param);
@@ -43,7 +43,7 @@ public class UsuarioDAOSQLite implements UsuarioDAO {
 
     public boolean insertarUsuario(Usuario usr) {
         boolean resultado = true;
-        SQLiteDatabase sqlLiteDB = appv.getWritableDatabase();
+        SQLiteDatabase sqlLiteDB = appc.getWritableDatabase();
         String sql = "INSERT INTO Usuarios (nombre, login, password, email, direccion, subscripcion) VALUES (?, ?, ?, ?, ?, ?)";
         SQLiteStatement statement = sqlLiteDB.compileStatement(sql);
 

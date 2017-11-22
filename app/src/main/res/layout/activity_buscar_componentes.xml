@@ -57,7 +57,7 @@
 
             <EditText
                 android:id="@+id/precio_max"
-                android:text="250"
+                android:text="25000"
                 android:inputType="numberDecimal"
                 android:imeOptions="actionDone"
                 />

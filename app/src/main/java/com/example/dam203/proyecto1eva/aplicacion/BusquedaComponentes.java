@@ -1,6 +1,9 @@
 package com.example.dam203.proyecto1eva.aplicacion;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -24,15 +27,17 @@ public class BusquedaComponentes extends AppCompatActivity {
     EditText nombre_componente;
     EditText precio_min;
     EditText precio_max;
-    String nombre = "TODOS";
-    String tipo;
+    String nombre = "";
+    String tipo = "TODOS";
     double minimo = 0;
     double maximo = 2500;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_componentes);
         Intent intent = getIntent();
+        // context
         // coje el usuario que se ha logeado
         usr = (Usuario) intent.getSerializableExtra(MainActivity.KEY_USUARIO);
         String nuevoTitulo= getString(R.string.identificador)
@@ -55,7 +60,7 @@ public class BusquedaComponentes extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(validar()){
-                    buscarVuelos(nombre, tipo, minimo, maximo);
+                    buscarComponentes(nombre, tipo, minimo, maximo);
                 }
             }
         });
@@ -75,7 +80,6 @@ public class BusquedaComponentes extends AppCompatActivity {
                 intent = new Intent(this, EdicionPerfil.class);
                 intent.putExtra(MainActivity.KEY_USUARIO, usr);
                 startActivity(intent);
-                finish();
                 break;
         }
 
@@ -107,7 +111,7 @@ public class BusquedaComponentes extends AppCompatActivity {
         return true;
     }
 
-    void buscarVuelos(String nombre, String tipo, Double minimo, Double maximo) {
+    void buscarComponentes(String nombre, String tipo, Double minimo, Double maximo) {
         /*Es necesario añadir a la consulta un campo _id para poder construir
         * en ResultadoBusqueda un ListAdapter directametne a partir del
         * resultado de la consulta*/
@@ -115,17 +119,24 @@ public class BusquedaComponentes extends AppCompatActivity {
         //TODO añadir consultas a querys
         if(nombre.isEmpty()){ //busqueda sin nombre
             if(tipo.equalsIgnoreCase("TODOS")){
-                query ="";
-            }else{
-                query = "";
+                query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion, precio||'€' AS precio " +
+                        "FROM componentes " +
+                        "WHERE precio BETWEEN %1$s AND %2$s", minimo.toString(), maximo.toString());
+            }else {
+                query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion, precio||'€' AS precio " +
+                        "FROM componentes " +
+                        "WHERE (precio BETWEEN %1$s AND %2$s) AND tipo = '%3$s'", minimo.toString(), maximo.toString(), tipo);
             }
         }else{ //busqueda con nombre
             if(tipo.equalsIgnoreCase("TODOS")){
-                query ="";
+                query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion, precio||'€' AS precio " +
+                        "FROM componentes " +
+                        "WHERE (precio BETWEEN %1$s AND %2$s) AND nombre LIKE '%3$s'", minimo.toString(), maximo.toString(), nombre);
             }else{
-                query = "";
+                query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion, precio||'€' AS precio " +
+                        "FROM componentes " +
+                        "WHERE (precio BETWEEN %1$s AND %2$s) AND tipo = '%3$s' AND nombre LIKE '%4$s'", minimo.toString(), maximo.toString(), tipo, nombre);
             }
-
         }
 
         Log.d("DEPURACIÓN", "Consulta: " + query);

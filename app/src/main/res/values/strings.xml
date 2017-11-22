@@ -40,4 +40,5 @@
     <string name="moneda">€</string>
     <string name="buscar">Buscar</string>
     <string name="opcional">Opcional</string>
+    <string name="componentes">Componentes</string>
 </resources>
