@@ -19,7 +19,7 @@ import com.example.dam203.proyecto1eva.R;
  */
 
 public class BusquedaComponentes extends AppCompatActivity {
-    Usuario usr;
+    static Usuario usr;
     public final static String CONSULTA = "consulta";
     Spinner tipo_componente;
     EditText nombre_componente;
@@ -35,14 +35,17 @@ public class BusquedaComponentes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_componentes);
         Intent intent = getIntent();
-        // context
         // coje el usuario que se ha logeado
         usr = (Usuario) intent.getSerializableExtra(MainActivity.KEY_USUARIO);
+        cambiarTituloVentana();
+        inicializarVariables();
+        gestionEventos();
+    }
+
+    private void cambiarTituloVentana() {
         String nuevoTitulo= getString(R.string.identificador)
                 +": "+usr.getNombre();
         setTitle(nuevoTitulo);
-        inicializarVariables();
-        gestionEventos();
     }
 
     private void inicializarVariables() {
@@ -62,6 +65,7 @@ public class BusquedaComponentes extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     @Override
@@ -118,21 +122,21 @@ public class BusquedaComponentes extends AppCompatActivity {
         String query = "";
         if(nombre.isEmpty()){ //busqueda sin nombre
             if(tipo.equalsIgnoreCase("TODOS")){
-                query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion, precio||'€' AS precio " +
+                query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion||' - 29BPDJ' AS descripcion, precio||'€' AS precio " +
                         "FROM componentes " +
                         "WHERE precio BETWEEN %1$s AND %2$s", minimo.toString(), maximo.toString());
             }else {
-                query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion, precio||'€' AS precio " +
+                query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion||' - 29BPDJ' AS descripcion, precio||'€' AS precio " +
                         "FROM componentes " +
                         "WHERE (precio BETWEEN %1$s AND %2$s) AND tipo = '%3$s'", minimo.toString(), maximo.toString(), tipo);
             }
         }else{ //busqueda con nombre
             if(tipo.equalsIgnoreCase("TODOS")){
-                query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion, precio||'€' AS precio " +
+                query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion||' - 29BPDJ' AS descripcion, precio||'€' AS precio " +
                         "FROM componentes " +
                         "WHERE (precio BETWEEN %1$s AND %2$s) AND nombre LIKE '%3$s'", minimo.toString(), maximo.toString(), nombre);
             }else{
-                query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion, precio||'€' AS precio " +
+                query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion||' - 29BPDJ' AS descripcion, precio||'€' AS precio " +
                         "FROM componentes " +
                         "WHERE (precio BETWEEN %1$s AND %2$s) AND tipo = '%3$s' AND nombre LIKE '%4$s'", minimo.toString(), maximo.toString(), tipo, nombre);
             }
@@ -146,6 +150,9 @@ public class BusquedaComponentes extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public static void cambiarUsuario(Usuario usrNEW){
+        usr = usrNEW;
+    }
 
 
 

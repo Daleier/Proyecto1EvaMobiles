@@ -77,5 +77,46 @@ public class UsuarioDAOSQLite implements UsuarioDAO {
         return resultado;
     }
 
+    public boolean modificarUsuario(Usuario usr) {
+        boolean resultado = true;
+        SQLiteDatabase sqlLiteDB = appc.getWritableDatabase();
+        String sql = "UPDATE Usuarios " +
+                "SET nombre = ?, login = ?, password = ?, email = ?, direccion = ?, subscripcion = ? " +
+                "WHERE id = ?";
+        SQLiteStatement statement = sqlLiteDB.compileStatement(sql);
+
+        statement.bindString(1, usr.getNombre());
+        statement.bindString(2, usr.getLogin());
+        statement.bindString(3, usr.getPassword());
+        statement.bindString(4, usr.getEmail());
+        statement.bindString(5, usr.getDireccion());
+        statement.bindString(6, usr.getSubscripcion() ? "1" : "0");
+        statement.bindString(7, Integer.toString(usr.getId()));
+
+        long rowId = statement.executeUpdateDelete();
+
+        if (rowId != -1) {
+            //Comprobación de la lista de usuarios. El siguiente código tiene como finalidad
+            //mostrar en el logcat el usuario que se acaba de insertar.
+            String usuarios = "";
+            Cursor cursor = sqlLiteDB.rawQuery("select * from Usuarios", null);
+            if (cursor.moveToFirst()) {
+                while (!cursor.isAfterLast()) {
+                    usuarios += " \n " + cursor.getString(0) + " " + cursor.getString(1) + " " + cursor.getString(2) + " " + cursor.getString(3)
+                            + " " + cursor.getString(4) + " " + cursor.getString(5) +" " + cursor.getString(6);
+                    cursor.moveToNext();
+                }
+            }
+            Log.d("DEPURACIÓN", "Resultado inserción 29BPDJ: " + usuarios);
+            Log.d("DEPURACIÓN", "Row ID: " + rowId);
+        } else {
+            resultado = false;
+        }
+        return resultado;
+
+    }
+
+
+
 
 }

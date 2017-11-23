@@ -1,5 +1,6 @@
 package com.example.dam203.proyecto1eva.aplicacion;
 
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.example.dam203.proyecto1eva.R;
 import com.example.dam203.proyecto1eva.dialogos.DireccionInvalidaDialogo;
 import com.example.dam203.proyecto1eva.dialogos.PassInvalidaDialogo;
 import com.example.dam203.proyecto1eva.dialogos.RegistroDialogo;
+import com.example.dam203.proyecto1eva.dialogos.UsuarioExistenteDialogo;
 
 /**
  * Created by dam203 on 15/11/2017.
@@ -22,12 +24,14 @@ import com.example.dam203.proyecto1eva.dialogos.RegistroDialogo;
 
 public class EdicionPerfil extends AppCompatActivity {
     Usuario usr;
+    UsuarioDAOSQLite usrDAO;
     EditText nombre;
     EditText login;
     EditText password;
     EditText email;
     Spinner direccion;
     CheckBox subscripcion;
+    boolean estadoSubscripcion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +39,10 @@ public class EdicionPerfil extends AppCompatActivity {
         setContentView(R.layout.edicion_perfil);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         usr = (Usuario) getIntent().getExtras().getSerializable(MainActivity.KEY_USUARIO);
+        this.usrDAO = new UsuarioDAOSQLite(this);
+        this.estadoSubscripcion = usr.getSubscripcion();
         inicializarVariables();
-        cambiarValores();
+        cambiarValoresIniciales();
         gestionEventos();
     }
 
@@ -45,15 +51,37 @@ public class EdicionPerfil extends AppCompatActivity {
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (validar(nombre.getText().toString().trim(), login.getText().toString().trim(),
-                        password.getText().toString(), email.getText().toString().trim(), getDireccion())){
-                    // TODO ejecutar consulta actualizacion en clase usuariosdaosql
+                String nombreUsuario = nombre.getText().toString().trim();
+                String loginUsuario = login.getText().toString().trim();
+                String passUsuario = password.getText().toString();
+                String emailUsuario = email.getText().toString().trim();
+                String direccionUsuario = getDireccion();
+                try{
+                    if (validar(nombreUsuario, loginUsuario,
+                            passUsuario, emailUsuario, direccionUsuario)){
+                        Usuario nuevoUsuario = new Usuario(nombreUsuario, loginUsuario, passUsuario, emailUsuario,
+                                direccionUsuario, estadoSubscripcion, usr.getId());
+                            usrDAO.modificarUsuario(nuevoUsuario);
+                            BusquedaComponentes.cambiarUsuario(nuevoUsuario);
+                            //TODO cambiar barra titulo BusquedaComponentes a nuevo nombre usuario
+                            finish();
+                    }
+                }catch (SQLiteConstraintException ex){
+                    Log.d("DEPURACIÓN", "Usuario ya existe en la DB.");
+                    crearDialogUsuarioExistente();
                 }
             }
+
         });
     }
 
-    private void cambiarValores() {
+    private void crearDialogUsuarioExistente(){
+        UsuarioExistenteDialogo d = new UsuarioExistenteDialogo();
+        FragmentManager fm = this.getSupportFragmentManager();
+        d.show(fm, "Usuario ya existe");
+    }
+
+    private void cambiarValoresIniciales() {
         nombre.setText(usr.getNombre());
         login.setText(usr.getLogin());
         password.setText(usr.getPassword());
@@ -89,7 +117,7 @@ public class EdicionPerfil extends AppCompatActivity {
     }
 
     private boolean validar(String nombre, String login, String password, String email, String direccion) {
-        boolean validacionCamposVacios = false;
+        boolean validacionCamposVacios;
         boolean validacionDireccion = false;
         boolean validacionPassword = false;
         //validacion
@@ -141,7 +169,13 @@ public class EdicionPerfil extends AppCompatActivity {
     }
 
     private String getDireccion() {
-        Spinner spinner = findViewById(R.id.registro_direccion);
+        Spinner spinner = findViewById(R.id.direccion);
         return spinner.getSelectedItem().toString();
     }
+
+    public void comprobarCambioSubscripcion(View view){
+        CheckBox checkBox = (CheckBox)view;
+        this.estadoSubscripcion = checkBox.isChecked();
+    }
+
 }

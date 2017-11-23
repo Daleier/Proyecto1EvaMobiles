@@ -30,7 +30,7 @@
     <string name="registro_exitoso">29BPDJ - Nuevo usuario registrado.</string>
     <string name="registro_fallido">29BPDJ - Error en el registro de usuario.</string>
     <string name="editar_perfil">Editar perfil</string>
-    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="cerrar_sesion">Cerrar sesión - 29BPDJ</string>
     <string name="titulo_usuario_existente">Usuario ya existe</string>
     <string name="usuario_existente">El usuario que has introducido ya existe.</string>
     <string name="tipo_de_componente">Tipo de componente</string>
@@ -38,7 +38,7 @@
     <string name="precio_min">Precio minimo:</string>
     <string name="precio_max">Precio maximo:</string>
     <string name="moneda">€</string>
-    <string name="buscar">Buscar</string>
+    <string name="buscar">29BPDJ - Buscar</string>
     <string name="opcional">Opcional</string>
     <string name="componentes">Componentes</string>
     <string name="error_precio_mayor">El precio maximo debe ser mayor que el precio minimo</string>
