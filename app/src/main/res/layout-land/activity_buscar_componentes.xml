@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:id="@+id/table_layout"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_marginVertical="@dimen/activity_vertical_margin">
+        <TableRow>
+            <TextView
+                android:text="@string/busqueda_nombre"/>
+
+            <EditText
+                android:id="@+id/nombre_componente"
+                android:imeOptions="actionDone"
+                android:layout_span="3"
+                android:hint="@string/opcional"
+                />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="@string/tipo_de_componente"
+                />
+
+            <Spinner
+                android:layout_span="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_tipo"
+                android:entries="@array/tipo"
+                android:spinnerMode="dialog"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="@string/precio_min"
+                android:layout_span="1"
+                />
+
+            <EditText
+                android:id="@+id/precio_min"
+                android:text="0"
+                android:layout_span="2"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionNext"/>
+
+            <TextView
+                android:text="@string/moneda"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="@string/precio_max"/>
+
+            <EditText
+                android:id="@+id/precio_max"
+                android:layout_span="2"
+                android:text="25000"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionDone"
+                />
+
+            <TextView
+                android:text="@string/moneda"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buscar"
+        android:layout_below="@id/table_layout"
+        android:layout_centerHorizontal="true"
+        android:text="@string/buscar"/>
+
+
+
+</RelativeLayout>
