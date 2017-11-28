@@ -2,8 +2,8 @@
 <resources>
     <string-array name="paises">
         <item>@string/direccion</item>
-        <item>España</item>
-        <item>Francia</item>
+        <item>Spain</item>
+        <item>France</item>
         <item>UK</item>
         <item>@string/otro</item>
     </string-array>

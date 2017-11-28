@@ -44,4 +44,6 @@
     <string name="error_precio_mayor">El precio maximo debe ser mayor que el precio minimo</string>
     <string name="error_precio_negativo">El precio no puede ser negativo</string>
     <string name="error_precios">Error conversion precios</string>
+    <string name="todos">TODOS</string>
+    <string name="otro">Otro</string>
 </resources>

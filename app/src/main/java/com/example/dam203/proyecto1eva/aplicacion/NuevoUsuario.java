@@ -69,6 +69,9 @@ public class NuevoUsuario extends AppCompatActivity {
                 String password = ((EditText) findViewById(R.id.registro_password)).getText().toString();
                 String email = ((EditText) findViewById(R.id.registro_email)).getText().toString().trim();
                 String direccion = getDireccion();
+                if (direccion.equalsIgnoreCase("Other")){ //TODO cambiar a getter con referencia a string
+                    direccion = "Otro";
+                }
 
                 if (validar(nombre, login, password, email, direccion)){
                     try {
@@ -143,7 +146,7 @@ public class NuevoUsuario extends AppCompatActivity {
     }
 
     private boolean validarDireccion(String direccion){
-        if(direccion.equals("Direccion")) {
+        if(direccion.equals(R.string.direccion)) {
             DireccionInvalidaDialogo d = new DireccionInvalidaDialogo();
             FragmentManager fm= this.getSupportFragmentManager();
             d.show(fm,"errorDireccion");
