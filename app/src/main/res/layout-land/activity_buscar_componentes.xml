@@ -72,8 +72,7 @@
     </TableLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/estiloBoton"
         android:id="@+id/buscar"
         android:layout_below="@id/table_layout"
         android:layout_centerHorizontal="true"

@@ -13,4 +13,8 @@
     <color name="white">#FFFFFF</color>
     <color name="green">#00FF00</color>
     <color name="acqua">#00FFFF</color>
+    <color name="grisFondo">#E4E4E4</color>
+    <color name="fuenteNaranja">#F1684E</color>
+    <color name="negroFondo">#1B1B1B99</color>
+
 </resources>

@@ -12,11 +12,11 @@
         <activity android:name=".aplicacion.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".aplicacion.BusquedaComponentes" />
+        <activity android:name=".aplicacion.BusquedaComponentes"
+            android:theme="@style/fuente"/>
         <activity android:name=".aplicacion.ResultadoBusqueda" />
         <activity android:name=".aplicacion.NuevoUsuario" />
         <activity android:name=".aplicacion.EdicionPerfil" />

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/grisFondo"
+    >
 
     <TableLayout
         android:layout_width="match_parent"
@@ -9,22 +11,27 @@
         android:stretchColumns="*"
         android:id="@+id/table_layout"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-        android:layout_marginVertical="@dimen/activity_vertical_margin">
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        >
         <TableRow>
             <TextView
-                android:text="@string/busqueda_nombre"/>
+                android:text="@string/busqueda_nombre"
+                style="@style/elementoTabla"
+                />
 
             <EditText
                 android:id="@+id/nombre_componente"
                 android:imeOptions="actionDone"
                 android:layout_span="2"
                 android:hint="@string/opcional"
+                style="@style/elementoTabla"
                 />
         </TableRow>
 
         <TableRow>
             <TextView
                 android:text="@string/tipo_de_componente"
+                style="@style/elementoTabla"
                 />
 
             <Spinner
@@ -33,19 +40,22 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_tipo"
                 android:entries="@array/tipo"
-                android:spinnerMode="dialog"/>
+                android:spinnerMode="dialog"
+                style="@style/elementoTabla"/>
         </TableRow>
 
         <TableRow>
             <TextView
                 android:text="@string/precio_min"
+                style="@style/elementoTabla"
                 />
 
             <EditText
                 android:id="@+id/precio_min"
                 android:text="0"
                 android:inputType="numberDecimal"
-                android:imeOptions="actionNext"/>
+                android:imeOptions="actionNext"
+                style="@style/elementoTabla"/>
 
             <TextView
                 android:text="@string/moneda"/>
@@ -53,24 +63,27 @@
 
         <TableRow>
             <TextView
-                android:text="@string/precio_max"/>
+                android:text="@string/precio_max"
+                style="@style/elementoTabla"
+                />
 
             <EditText
                 android:id="@+id/precio_max"
                 android:text="25000"
                 android:inputType="numberDecimal"
                 android:imeOptions="actionDone"
+                style="@style/elementoTabla"
                 />
 
             <TextView
-                android:text="@string/moneda"/>
+                android:text="@string/moneda"
+                />
         </TableRow>
 
     </TableLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/estiloBoton"
         android:id="@+id/buscar"
         android:layout_below="@id/table_layout"
         android:layout_centerHorizontal="true"
