@@ -8,4 +8,32 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="formulario">
+        <item name="android:background">@color/materialgray</item>
+    </style>
+
+    <style name="fuente">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/fuenteNaranja</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColorHint">@color/fuenteNaranja</item>
+    </style>
+
+    <style name="tabla">
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginBottom">@dimen/activity_vertical_margin</item>
+        <item name="android:color">@color/black</item>
+    </style>
+
+    <style name="filasTabla">
+        <item name="android:layout_margin">@dimen/margin_tabla</item>
+        <item name="android:background">@color/materialgray</item>
+    </style>
+
+    <style name="elementoTabla" parent="fuente">
+        <item name="android:layout_margin">@dimen/margin_tabla</item>
+    </style>
+
 </resources>

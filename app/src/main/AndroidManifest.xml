@@ -15,8 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".aplicacion.BusquedaComponentes"
-            android:theme="@style/fuente"/>
+        <activity android:name=".aplicacion.BusquedaComponentes"/>
         <activity android:name=".aplicacion.ResultadoBusqueda" />
         <activity android:name=".aplicacion.NuevoUsuario" />
         <activity android:name=".aplicacion.EdicionPerfil" />

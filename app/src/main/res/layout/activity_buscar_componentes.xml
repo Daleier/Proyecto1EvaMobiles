@@ -2,18 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grisFondo"
-    >
+    android:background="@drawable/industrial_background"
+    ><!-- TODO cambiar imagen fondo y poner en manifest -->
 
     <TableLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:stretchColumns="*"
         android:id="@+id/table_layout"
-        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        style="@style/tabla"
+        android:stretchColumns="*"
         >
-        <TableRow>
+
+        <TableRow style="@style/filasTabla">
             <TextView
                 android:text="@string/busqueda_nombre"
                 style="@style/elementoTabla"
@@ -21,74 +21,78 @@
 
             <EditText
                 android:id="@+id/nombre_componente"
-                android:imeOptions="actionDone"
                 android:layout_span="2"
                 android:hint="@string/opcional"
-                style="@style/elementoTabla"
-                />
+                android:imeOptions="actionDone"
+                android:textColorHint="@color/white"
+                style="@style/elementoTabla"/>
         </TableRow>
 
-        <TableRow>
+        <TableRow style="@style/filasTabla">
+
             <TextView
                 android:text="@string/tipo_de_componente"
-                style="@style/elementoTabla"
-                />
+                style="@style/elementoTabla"/>
 
             <Spinner
-                android:layout_span="2"
+                android:id="@+id/spinner_tipo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/spinner_tipo"
+                android:layout_span="2"
                 android:entries="@array/tipo"
                 android:spinnerMode="dialog"
                 style="@style/elementoTabla"/>
         </TableRow>
 
-        <TableRow>
+        <TableRow style="@style/filasTabla">
+
             <TextView
+                android:layout_margin="@dimen/margin_tabla"
                 android:text="@string/precio_min"
                 style="@style/elementoTabla"
                 />
 
             <EditText
                 android:id="@+id/precio_min"
-                android:text="0"
-                android:inputType="numberDecimal"
                 android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:text="0"
+                android:textColor="@color/white"
                 style="@style/elementoTabla"/>
 
             <TextView
-                android:text="@string/moneda"/>
+                android:text="@string/moneda"
+                style="@style/elementoTabla"
+                android:textColor="@color/white"/>
+
         </TableRow>
 
-        <TableRow>
+        <TableRow style="@style/filasTabla">
+
             <TextView
                 android:text="@string/precio_max"
-                style="@style/elementoTabla"
-                />
+                style="@style/elementoTabla"/>
 
             <EditText
                 android:id="@+id/precio_max"
-                android:text="25000"
-                android:inputType="numberDecimal"
                 android:imeOptions="actionDone"
-                style="@style/elementoTabla"
-                />
+                android:inputType="numberDecimal"
+                android:text="25000"
+                android:textColor="@color/white"
+                style="@style/elementoTabla"/>
 
-            <TextView
-                android:text="@string/moneda"
-                />
+            <TextView android:text="@string/moneda"
+                android:textColor="@color/white"
+                style="@style/elementoTabla"/>
         </TableRow>
-
     </TableLayout>
 
     <Button
-        style="@style/estiloBoton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/buscar"
         android:layout_below="@id/table_layout"
         android:layout_centerHorizontal="true"
         android:text="@string/buscar"/>
-
-
 
 </RelativeLayout>
