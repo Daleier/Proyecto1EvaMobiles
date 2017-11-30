@@ -22,6 +22,7 @@
     <string name="subscripcion">Subscripcion</string>
     <string name="subscripcion_novedades">Deseo registrarme al boletin de novedades.</string>
     <string name="titulo_campos_registro_no_validos">Registro fallido</string>
+    <string name="campo_vacio">Rellena el campo</string>
     <string name="campos_registro_vacios">Debes completar todos los campos del formulario para realizar el registro.</string>
     <string name="titulo_direccion_invalida">Selecciona un país.</string>
     <string name="direccion_invalida">Debes seleccionar un pais de residencia.</string>

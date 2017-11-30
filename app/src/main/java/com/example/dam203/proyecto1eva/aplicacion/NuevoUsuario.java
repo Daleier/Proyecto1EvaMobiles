@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +31,7 @@ public class NuevoUsuario extends AppCompatActivity {
     private Appcomponentes appv;
     UsuarioDAOSQLite usrDAO;
     private boolean subscripcion ;
+    final int MIN_CHAR_PASS = 6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +63,7 @@ public class NuevoUsuario extends AppCompatActivity {
     }
 
     void xestionarEventos() {
-        Button btnNuevoUsuario = findViewById(R.id.crear_usuario);
+        final Button btnNuevoUsuario = findViewById(R.id.crear_usuario);
         btnNuevoUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,13 +81,19 @@ public class NuevoUsuario extends AppCompatActivity {
                         crearUsuario(nombre, login, password, email, direccion);
                     }catch (SQLiteConstraintException ex){
                         Log.d("DEPURACIÓN", "Usuario ya existe en la DB.");
-                        crearDialogUsuarioExistente();
+//                        crearDialogUsuarioExistente();
+                        EditText errorLogin = findViewById(R.id.registro_login);
+                        errorLogin.setError(getString(R.string.usuario_existente));
                     }
                 }
             }
         });
+
     }
 
+    /**
+     * @deprecated sustituido por un getError al campo login
+     */
     private void crearDialogUsuarioExistente(){
         UsuarioExistenteDialogo d = new UsuarioExistenteDialogo();
         FragmentManager fm = this.getSupportFragmentManager();
@@ -123,16 +132,24 @@ public class NuevoUsuario extends AppCompatActivity {
         boolean validacionDireccion = false;
         boolean validacionPassword = false;
         //validacion
-        validacionCamposVacios = validarCamposVacios(nombre, login, password, email);
+        validacionCamposVacios = validarCamposVaciosError(nombre, login, password, email);
         if(validacionCamposVacios) {
             validacionDireccion = validarDireccion(direccion);
         }
         if (validacionCamposVacios && validacionDireccion){
-            validacionPassword = validarPassword(password);
+            validacionPassword = validarPasswordError(password);
         }
         return validacionCamposVacios && validacionDireccion && validacionPassword;
     }
 
+    /**
+     * @deprecated cambiado por validarCamposVaciosError
+     * @param nombre
+     * @param login
+     * @param password
+     * @param email
+     * @return
+     */
     private boolean validarCamposVacios(String nombre, String login, String password, String email){
         if (nombre.isEmpty() || login.isEmpty() || password.isEmpty() || email.isEmpty()){
             RegistroDialogo d = new RegistroDialogo();
@@ -143,6 +160,31 @@ public class NuevoUsuario extends AppCompatActivity {
         }else{
             return true;
         }
+    }
+
+    private boolean validarCamposVaciosError(String nombre, String login, String password, String email){
+        boolean valido = true;
+        if (nombre.isEmpty()){
+            EditText nombreVacio = findViewById(R.id.registro_nombre);
+            nombreVacio.setError(getString(R.string.campo_vacio));
+            valido = false;
+        }
+        if(login.isEmpty()) {
+            EditText loginVacio = findViewById(R.id.registro_login);
+            loginVacio.setError(getString(R.string.campo_vacio));
+            valido = false;
+        }
+        if(password.isEmpty()){
+            EditText passVacio = findViewById(R.id.registro_password);
+            passVacio.setError(getString(R.string.campo_vacio));
+            valido = false;
+        }
+        if(email.isEmpty()){
+            EditText emailVacio = findViewById(R.id.registro_email);
+            emailVacio.setError(getString(R.string.campo_vacio));
+            valido = false;
+        }
+        return valido;
     }
 
     private boolean validarDireccion(String direccion){
@@ -157,15 +199,29 @@ public class NuevoUsuario extends AppCompatActivity {
         }
     }
 
+    /**
+     * @deprecated sustituido por validarPasswordError
+     * @param password
+     * @return
+     */
     private boolean validarPassword(String password){
-        final int MIN_CHAR_PASS = 6;
-        if (password.length() < MIN_CHAR_PASS){
+        if (password.length() < this.MIN_CHAR_PASS){
             PassInvalidaDialogo d = new PassInvalidaDialogo();
             FragmentManager fm= this.getSupportFragmentManager();
             d.show(fm,"errorPassword");
             Log.d("DEPURACIÓN", "Contraseña no valida.");
             return false;
         } else{
+            return true;
+        }
+    }
+
+    private boolean validarPasswordError(String password) {
+        if (password.length() < this.MIN_CHAR_PASS) {
+            EditText passError = findViewById(R.id.registro_password);
+            passError.setError(getString(R.string.password_invalida));
+            return false;
+        } else {
             return true;
         }
     }

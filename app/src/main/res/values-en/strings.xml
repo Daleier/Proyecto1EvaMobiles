@@ -22,6 +22,7 @@
     <string name="subscripcion">Subscription</string>
     <string name="subscripcion_novedades">I want to sign up to the newsletter.</string>
     <string name="titulo_campos_registro_no_validos">Sign up failed.</string>
+    <string name="campo_vacio">Fill the field</string>
     <string name="campos_registro_vacios">You must fill all the fields in the form in order to sign up.</string>
     <string name="titulo_direccion_invalida">Select a country</string>
     <string name="direccion_invalida">You must select a country.</string>
