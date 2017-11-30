@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.dam203.proyecto1eva.R;
-import com.example.dam203.proyecto1eva.dialogos.MensajeDialogo;
+import com.example.dam203.proyecto1eva.dialogos.LoginDialogo;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         } else {
             //Toast.makeText(getApplicationContext(), "Error de autentificación.", Toast.LENGTH_LONG).show();
-            MensajeDialogo d= new MensajeDialogo();
+            LoginDialogo d= new LoginDialogo();
             FragmentManager fm= this.getSupportFragmentManager();
             d.show(fm,"errorLogin");
         }

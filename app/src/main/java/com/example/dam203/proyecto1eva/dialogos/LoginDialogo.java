@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.dam203.proyecto1eva.R;
 
-public class MensajeDialogo extends DialogFragment {
+public class LoginDialogo extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
@@ -28,6 +28,7 @@ public class MensajeDialogo extends DialogFragment {
                         //Toast.makeText(getActivity(), "PULSADA OPCION BOA", Toast.LENGTH_LONG).show();
                     }
                 });
+        this.setStyle(DialogFragment.STYLE_NORMAL, R.style.fuente);
         this.setCancelable(false);
         return builder.create();
     }
