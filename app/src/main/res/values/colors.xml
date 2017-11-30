@@ -5,6 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="black">#000000</color>
     <color name="red">#FF0000</color>
+    <color name="flame">#E25822</color>
+    <color name="scarlet">#FF3300</color>
+    <color name="ruby">#E0115F</color>
+    <color name="crimsom">#DC143C</color>
     <color name="yellow">#FFFF00</color>
     <color name="magenta">#FF00FF</color>
     <color name="skyblue">#87CEEB</color>

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/formulario"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dimgray"
     >
+
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,7 +58,8 @@
                 android:inputType="numberDecimal"
                 android:text="0"
                 android:textColor="@color/white"
-                style="@style/elementoTabla"/>
+                style="@style/elementoTabla"
+              />
 
             <TextView
                 android:text="@string/moneda"
@@ -91,6 +95,6 @@
         android:layout_below="@id/table_layout"
         android:layout_centerHorizontal="true"
         android:text="@string/buscar"
-        android:background="@drawable/button_background_blue"/>
+        android:background="@drawable/button_background_red"/>
 
 </RelativeLayout>
