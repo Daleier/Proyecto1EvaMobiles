@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <EditText
+        style="@style/usuario"
         android:id="@+id/login"
         android:layout_width="@dimen/edit_text_login"
         android:layout_height="wrap_content"

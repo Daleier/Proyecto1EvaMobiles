@@ -8,8 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="pantalla_inicio" parent="AppTheme">
+        <item name="android:colorBackground">@color/grisFondo</item>
+    </style>
+
     <style name="formulario">
-        <item name="android:background">@color/materialgray</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/wall_background</item>
     </style>
 
     <style name="fuente">
@@ -34,6 +40,14 @@
 
     <style name="elementoTabla" parent="fuente">
         <item name="android:layout_margin">@dimen/margin_tabla</item>
+    </style>
+
+    <style name="elementoTabla_icono" parent="elementoTabla">
+        <item name="android:drawableRight">@drawable/money_icon</item>
+    </style>
+    <style name="usuario">
+        <item name="android:drawableLeft">@drawable/login_icn</item>
+        <item name="android:drawablePadding">@dimen/padding_drawables</item>
     </style>
 
 </resources>

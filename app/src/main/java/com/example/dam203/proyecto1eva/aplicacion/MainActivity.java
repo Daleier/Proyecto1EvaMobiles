@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         copiarBD();
         this.usrDAO = new UsuarioDAOSQLite(this);
         xestionarEventos();
+
     }
 
     private void copiarBD() {
