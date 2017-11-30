@@ -78,6 +78,16 @@ public class NuevoUsuario extends AppCompatActivity {
 
                 if (validar(nombre, login, password, email, direccion)){
                     try {
+                        switch (direccion){
+                            case "Spain":
+                                direccion = "España";
+                                break;
+                            case "France":
+                                direccion = "Francia";
+                                break;
+                            case "Other":
+                                direccion = "Otro";
+                        }
                         crearUsuario(nombre, login, password, email, direccion);
                     }catch (SQLiteConstraintException ex){
                         Log.d("DEPURACIÓN", "Usuario ya existe en la DB.");

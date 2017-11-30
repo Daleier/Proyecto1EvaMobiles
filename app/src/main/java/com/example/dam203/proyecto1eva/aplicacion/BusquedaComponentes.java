@@ -120,6 +120,9 @@ public class BusquedaComponentes extends AppCompatActivity {
         * en ResultadoBusqueda un ListAdapter directametne a partir del
         * resultado de la consulta*/
         String query = "";
+        if(tipo.equalsIgnoreCase("ALL")){
+            tipo = "TODOS";
+        }
         if(nombre.isEmpty()){ //busqueda sin nombre
             if(tipo.equalsIgnoreCase("TODOS")){
                 query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion||' - 29BPDJ' AS descripcion, precio||'€' AS precio " +
