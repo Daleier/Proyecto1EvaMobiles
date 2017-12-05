@@ -29,6 +29,7 @@ public class BusquedaComponentes extends AppCompatActivity {
     String tipo = "TODOS";
     double minimo = 0;
     double maximo = 2500;
+    private static final int COD_PETICION = 33;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +82,7 @@ public class BusquedaComponentes extends AppCompatActivity {
             case R.id.editar_perfil:
                 intent = new Intent(this, EdicionPerfil.class);
                 intent.putExtra(MainActivity.KEY_USUARIO, usr);
-                startActivity(intent);
+                startActivityForResult(intent, COD_PETICION);
                 break;
         }
 
@@ -89,6 +90,17 @@ public class BusquedaComponentes extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == COD_PETICION) {
+            if (resultCode == RESULT_OK) {
+                if (data.hasExtra("USUARIO")) {
+                    Usuario nuevoUsuario = (Usuario) data.getExtras().getSerializable("USUARIO");
+                    cambiarUsuario(nuevoUsuario);
+                    cambiarTituloVentana();
+                }
+            }
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -153,7 +165,7 @@ public class BusquedaComponentes extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public static void cambiarUsuario(Usuario usrNEW){
+    private void cambiarUsuario(Usuario usrNEW){
         usr = usrNEW;
     }
 

@@ -1,5 +1,6 @@
 package com.example.dam203.proyecto1eva.aplicacion;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -65,8 +66,9 @@ public class EdicionPerfil extends AppCompatActivity {
                         Usuario nuevoUsuario = new Usuario(nombreUsuario, loginUsuario, passUsuario, emailUsuario,
                                 direccionUsuario, estadoSubscripcion, usr.getId());
                             usrDAO.modificarUsuario(nuevoUsuario);
-                            BusquedaComponentes.cambiarUsuario(nuevoUsuario);
-                            //TODO cambiar barra titulo BusquedaComponentes a nuevo nombre usuario
+                            Intent datos = new Intent(); // datos para devolver a aplicación principal
+                            datos.putExtra("USUARIO", nuevoUsuario);
+                            setResult(RESULT_OK, datos);
                             finish();
                     }
                 }catch (SQLiteConstraintException ex){
