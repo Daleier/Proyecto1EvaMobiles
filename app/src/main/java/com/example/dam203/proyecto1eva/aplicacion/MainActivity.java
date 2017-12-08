@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),R.string.toast_login, Toast.LENGTH_LONG).show();
 
             // crea nuevo intent
-            Intent intent = new Intent(this, BusquedaComponentes.class);
+            Intent intent = new Intent(this, BCNavigationDrawer.class);
             intent.putExtra(KEY_USUARIO, usr);
             startActivity(intent);
             finish();

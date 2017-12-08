@@ -2,11 +2,18 @@ package com.example.dam203.proyecto1eva.aplicacion;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.view.View;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -14,12 +21,9 @@ import android.widget.Toast;
 
 import com.example.dam203.proyecto1eva.R;
 
-/**
- * Created by dam203 on 31/10/2017.
- * @deprecated sustituido por BCNavigationDrawer
- */
+public class BCNavigationDrawer extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
-public class BusquedaComponentes extends AppCompatActivity {
     static Usuario usr;
     public final static String CONSULTA = "consulta";
     Spinner tipo_componente;
@@ -35,13 +39,88 @@ public class BusquedaComponentes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buscar_componentes);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         Intent intent = getIntent();
-        // coje el usuario que se ha logeado
         usr = (Usuario) intent.getSerializableExtra(MainActivity.KEY_USUARIO);
         cambiarTituloVentana();
         inicializarVariables();
         gestionEventos();
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_busqueda, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        Intent intent;
+        switch (item.getItemId()) {
+            case R.id.logout:
+                //Ir a la ventana de inicio de sesión y finalizar la Activity.
+                intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.editar_perfil:
+                intent = new Intent(this, EdicionPerfil.class);
+                intent.putExtra(MainActivity.KEY_USUARIO, usr);
+                startActivityForResult(intent, COD_PETICION);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
+
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     private void cambiarTituloVentana() {
@@ -70,27 +149,6 @@ public class BusquedaComponentes extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        switch (item.getItemId()) {
-            case R.id.logout:
-                //Ir a la ventana de inicio de sesión y finalizar la Activity.
-                intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-                finish();
-                return true;
-            case R.id.editar_perfil:
-                intent = new Intent(this, EdicionPerfil.class);
-                intent.putExtra(MainActivity.KEY_USUARIO, usr);
-                startActivityForResult(intent, COD_PETICION);
-                break;
-        }
-
-
-        return super.onOptionsItemSelected(item);
-    }
-
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == COD_PETICION) {
             if (resultCode == RESULT_OK) {
@@ -103,11 +161,6 @@ public class BusquedaComponentes extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_busqueda, menu);
-        return true;
-    }
 
     private boolean validar(){
         String nombre = nombre_componente.getText().toString().trim();
@@ -169,7 +222,5 @@ public class BusquedaComponentes extends AppCompatActivity {
     private void cambiarUsuario(Usuario usrNEW){
         usr = usrNEW;
     }
-
-
 
 }

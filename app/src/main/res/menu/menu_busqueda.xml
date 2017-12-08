@@ -7,5 +7,7 @@
         app:showAsAction="ifRoom"
         />
     <item android:id="@+id/logout"
-        android:title="@string/cerrar_sesion" />
+        android:title="@string/cerrar_sesion"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        app:showAsAction="ifRoom"/>
 </menu>

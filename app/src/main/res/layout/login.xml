@@ -5,7 +5,6 @@
 
 
     <EditText
-        style="@style/usuario"
         android:id="@+id/login"
         android:layout_width="@dimen/edit_text_login"
         android:layout_height="wrap_content"
@@ -14,6 +13,8 @@
         android:hint="@string/usuario"
         android:inputType="text"
         android:imeOptions="actionNext"
+        android:drawableLeft="@drawable/login_icn"
+        android:drawablePadding="@dimen/padding_drawables"
         />
 
     <EditText

@@ -45,9 +45,14 @@
     <style name="elementoTabla_icono" parent="elementoTabla">
         <item name="android:drawableRight">@drawable/money_icon</item>
     </style>
-    <style name="usuario">
-        <item name="android:drawableLeft">@drawable/login_icn</item>
-        <item name="android:drawablePadding">@dimen/padding_drawables</item>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

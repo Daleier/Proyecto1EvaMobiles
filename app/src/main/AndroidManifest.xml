@@ -14,14 +14,18 @@
             android:theme="@style/pantalla_inicio">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".aplicacion.BusquedaComponentes"/>
+        <activity android:name=".aplicacion.BusquedaComponentes" />
         <activity android:name=".aplicacion.ResultadoBusqueda" />
         <activity android:name=".aplicacion.NuevoUsuario" />
         <activity android:name=".aplicacion.EdicionPerfil" />
+        <activity
+            android:name=".aplicacion.BCNavigationDrawer"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
-
 
 </manifest>
