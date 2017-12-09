@@ -47,5 +47,11 @@
     <string name="error_precios">Error reading prices</string>ç
     <string name="todos">ALL</string>
     <string name="otro">Other</string>
+    <string name="sacar_foto">Take photo</string>
+    <string name="camara">Camera</string>
+    <string name="galeria">Gallery</string>
 
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

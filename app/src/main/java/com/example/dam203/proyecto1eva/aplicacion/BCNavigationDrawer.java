@@ -2,8 +2,6 @@ package com.example.dam203.proyecto1eva.aplicacion;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -17,6 +15,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dam203.proyecto1eva.R;
@@ -54,7 +53,7 @@ public class BCNavigationDrawer extends AppCompatActivity
 
         Intent intent = getIntent();
         usr = (Usuario) intent.getSerializableExtra(MainActivity.KEY_USUARIO);
-        cambiarTituloVentana();
+        cambiarValoresUsuario();
         inicializarVariables();
         gestionEventos();
     }
@@ -105,9 +104,13 @@ public class BCNavigationDrawer extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            Intent intent = new Intent(this, Camara.class );
+            startActivity(intent);
         } else if (id == R.id.nav_gallery) {
-
+            Intent i = new Intent(Intent.ACTION_PICK,
+                    android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            final int ACTIVITY_SELECT_IMAGE = 1234;
+            startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
@@ -123,10 +126,17 @@ public class BCNavigationDrawer extends AppCompatActivity
         return true;
     }
 
-    private void cambiarTituloVentana() {
+    private void cambiarValoresUsuario() {
         String nuevoTitulo= getString(R.string.identificador)
                 +": "+usr.getNombre();
         setTitle(nuevoTitulo);
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView nombreNavDrawer = headerView.findViewById(R.id.nombreNavigationDrawer);
+        nombreNavDrawer.setText(usr.getNombre());
+        TextView emailNavDrawer = headerView.findViewById(R.id.emailNavigationDrawer);
+        emailNavDrawer.setText(usr.getEmail());
     }
 
     private void inicializarVariables() {
@@ -155,7 +165,7 @@ public class BCNavigationDrawer extends AppCompatActivity
                 if (data.hasExtra("USUARIO")) {
                     Usuario nuevoUsuario = (Usuario) data.getExtras().getSerializable("USUARIO");
                     cambiarUsuario(nuevoUsuario);
-                    cambiarTituloVentana();
+                    cambiarValoresUsuario();
                 }
             }
         }

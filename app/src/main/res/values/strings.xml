@@ -47,10 +47,11 @@
     <string name="error_precios">Error conversion precios</string>
     <string name="todos">TODOS</string>
     <string name="otro">Otro</string>
+    <string name="sacar_foto">Sacar foto</string>
+    <string name="camara">Camara</string>
+    <string name="galeria">Galeria</string>
+
     <string name="title_activity_main">MainActivity</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
+    <string name="navigation_drawer_open">Abrir navigation drawer</string>
+    <string name="navigation_drawer_close">Cerrar navigation drawer</string>
 </resources>
