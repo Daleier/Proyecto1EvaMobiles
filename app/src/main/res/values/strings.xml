@@ -50,8 +50,10 @@
     <string name="sacar_foto">Sacar foto</string>
     <string name="camara">Camara</string>
     <string name="galeria">Galeria</string>
+    <string name="mapa">Mapa</string>
 
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Abrir navigation drawer</string>
     <string name="navigation_drawer_close">Cerrar navigation drawer</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

@@ -111,8 +111,9 @@ public class BCNavigationDrawer extends AppCompatActivity
                     android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
             final int ACTIVITY_SELECT_IMAGE = 1234;
             startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.nav_map) {
+            Intent intent = new Intent(this, MapsActivity.class );
+            startActivity(intent);
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
