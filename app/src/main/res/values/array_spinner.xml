@@ -12,5 +12,6 @@
         <item>@string/todos</item>
         <item>CPU</item>
         <item>GPU</item>
+        <item>RAM</item>
     </string-array>
 </resources>

@@ -177,7 +177,7 @@ public class BCNavigationDrawer extends AppCompatActivity
 
 
     private boolean validar(){
-        String nombre = nombre_componente.getText().toString().trim();
+        nombre = nombre_componente.getText().toString();
         try {
             minimo = Double.parseDouble(precio_min.getText().toString().trim());
             maximo = Double.parseDouble(precio_max.getText().toString().trim());
@@ -217,11 +217,11 @@ public class BCNavigationDrawer extends AppCompatActivity
             if(tipo.equalsIgnoreCase("TODOS")){
                 query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion||' - 29BPDJ' AS descripcion, precio||'€' AS precio " +
                         "FROM componentes " +
-                        "WHERE (precio BETWEEN %1$s AND %2$s) AND nombre LIKE '%3$s'", minimo.toString(), maximo.toString(), nombre);
+                        "WHERE (precio BETWEEN %1$s AND %2$s) AND nombre LIKE '%3$s'", minimo.toString(), maximo.toString(), "%"+nombre+"%");
             }else{
                 query = String.format("SELECT id AS _id, nombre, fabricante, tipo, descripcion||' - 29BPDJ' AS descripcion, precio||'€' AS precio " +
                         "FROM componentes " +
-                        "WHERE (precio BETWEEN %1$s AND %2$s) AND tipo = '%3$s' AND nombre LIKE '%4$s'", minimo.toString(), maximo.toString(), tipo, nombre);
+                        "WHERE (precio BETWEEN %1$s AND %2$s) AND tipo = '%3$s' AND nombre LIKE '%4$s'", minimo.toString(), maximo.toString(), tipo, "%"+nombre+"%");
             }
         }
 
