@@ -51,6 +51,7 @@
     <string name="camara">Camara</string>
     <string name="galeria">Galeria</string>
     <string name="mapa">Mapa</string>
+    <string name="formulario">Formulario</string>
 
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Abrir navigation drawer</string>

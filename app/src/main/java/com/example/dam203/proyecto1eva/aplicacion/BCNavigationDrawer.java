@@ -39,6 +39,7 @@ public class BCNavigationDrawer extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.setTitle(R.string.app_name);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -53,9 +54,11 @@ public class BCNavigationDrawer extends AppCompatActivity
 
         Intent intent = getIntent();
         usr = (Usuario) intent.getSerializableExtra(MainActivity.KEY_USUARIO);
-        cambiarValoresUsuario();
-        inicializarVariables();
-        gestionEventos();
+        // DESCOMENTAR PARA PONER VENTANA DE FORMULARIO
+//        cambiarUsuario();
+//        inicializarVariables();
+//        gestionEventos();
+        cambiarUsuarioNavigationDrawer();
     }
 
     @Override
@@ -114,12 +117,10 @@ public class BCNavigationDrawer extends AppCompatActivity
         } else if (id == R.id.nav_map) {
             Intent intent = new Intent(this, MapsActivity.class );
             startActivity(intent);
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_formulario) {
+            Intent intent = new Intent(this, BusquedaComponentes.class);
+            intent.putExtra("USUARIO", usr);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -127,11 +128,13 @@ public class BCNavigationDrawer extends AppCompatActivity
         return true;
     }
 
-    private void cambiarValoresUsuario() {
+    private void cambiarUsuario() {
         String nuevoTitulo= getString(R.string.identificador)
                 +": "+usr.getNombre();
         setTitle(nuevoTitulo);
+    }
 
+    private void cambiarUsuarioNavigationDrawer(){
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
         TextView nombreNavDrawer = headerView.findViewById(R.id.nombreNavigationDrawer);
@@ -166,7 +169,7 @@ public class BCNavigationDrawer extends AppCompatActivity
                 if (data.hasExtra("USUARIO")) {
                     Usuario nuevoUsuario = (Usuario) data.getExtras().getSerializable("USUARIO");
                     cambiarUsuario(nuevoUsuario);
-                    cambiarValoresUsuario();
+                    cambiarUsuario();
                 }
             }
         }

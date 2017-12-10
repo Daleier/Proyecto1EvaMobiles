@@ -38,6 +38,7 @@ public class BusquedaComponentes extends AppCompatActivity {
         setContentView(R.layout.activity_buscar_componentes);
         Intent intent = getIntent();
         // coje el usuario que se ha logeado
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         usr = (Usuario) intent.getSerializableExtra(MainActivity.KEY_USUARIO);
         cambiarTituloVentana();
         inicializarVariables();
@@ -84,6 +85,9 @@ public class BusquedaComponentes extends AppCompatActivity {
                 intent = new Intent(this, EdicionPerfil.class);
                 intent.putExtra(MainActivity.KEY_USUARIO, usr);
                 startActivityForResult(intent, COD_PETICION);
+                break;
+            case android.R.id.home:
+                finish();
                 break;
         }
 

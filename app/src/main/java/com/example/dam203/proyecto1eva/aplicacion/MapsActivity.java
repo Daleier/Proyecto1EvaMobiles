@@ -62,7 +62,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             marcador.remove();
         marcador = mMap.addMarker(new MarkerOptions()
                 .position(coordenadas)
-                .title("Mi posición actual")
+                .title(getString(R.string.identificador))
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_place_black_36dp)));
         mMap.animateCamera(miUbicacion);
     }
