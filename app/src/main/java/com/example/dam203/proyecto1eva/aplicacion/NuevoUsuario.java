@@ -72,7 +72,7 @@ public class NuevoUsuario extends AppCompatActivity {
                 String password = ((EditText) findViewById(R.id.registro_password)).getText().toString();
                 String email = ((EditText) findViewById(R.id.registro_email)).getText().toString().trim();
                 String direccion = getDireccion();
-                if (direccion.equalsIgnoreCase("Other")){ //TODO cambiar a getter con referencia a string
+                if (direccion.equalsIgnoreCase("Other")){
                     direccion = "Otro";
                 }
 

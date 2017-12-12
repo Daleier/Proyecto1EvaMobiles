@@ -58,7 +58,7 @@ public class EdicionPerfil extends AppCompatActivity {
                 String passUsuario = password.getText().toString();
                 String emailUsuario = email.getText().toString().trim();
                 String direccionUsuario = getDireccion();
-                if (direccionUsuario.equalsIgnoreCase("Other")){ //TODO cambiar a getter con referencia a string
+                if (direccionUsuario.equalsIgnoreCase("Other")){
                     direccionUsuario = "Otro";
                 }
                 try{
