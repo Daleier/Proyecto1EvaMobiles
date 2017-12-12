@@ -64,5 +64,6 @@
         android:id="@+id/crear_usuario"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/registro_subscripcion"
-        android:text="@string/registrar"/>
+        android:text="@string/registrar"
+        android:background="@drawable/button_background_blue"/>
 </RelativeLayout>

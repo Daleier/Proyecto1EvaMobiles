@@ -41,13 +41,16 @@
         android:layout_alignStart="@id/signup_button"
         android:layout_alignEnd="@id/signup_button"
         android:layout_alignLeft="@id/signup_button"
-        android:layout_alignRight="@id/signup_button"/>
+        android:layout_alignRight="@id/signup_button"
+        android:background="@drawable/button_background_blue"/>
 
     <Button
+        android:layout_marginTop="@dimen/padding_boton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/signup_button"
         android:layout_below="@id/login_button"
         android:layout_centerHorizontal="true"
-        android:text="@string/crear_cuenta"/>
+        android:text="@string/crear_cuenta"
+        android:background="@drawable/button_background_blue"/>
 </RelativeLayout>

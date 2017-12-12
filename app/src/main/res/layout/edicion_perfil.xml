@@ -95,5 +95,6 @@
         android:layout_height="wrap_content"        android:id="@+id/aceptar"
         android:text="@string/aceptar"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/subscripcion"/>
+        android:layout_below="@id/subscripcion"
+        android:background="@drawable/button_background_blue"/>
 </RelativeLayout>
