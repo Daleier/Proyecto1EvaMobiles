@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -35,6 +36,7 @@ public class Camara extends AppCompatActivity {
         setContentView(R.layout.activity_camara);
         Log.d("Depuración", "Directorio pictures: " + Environment.DIRECTORY_PICTURES);
         Log.d("Depuración", "Ruta del directorio: " + getApplicationContext().getExternalFilesDir(null));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         bFoto = (Button) findViewById(R.id.bFoto);
         bFoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,5 +102,14 @@ public class Camara extends AppCompatActivity {
             imgview.setImageBitmap(bitmap);
         }
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home){
+                finish();
+        }
+        return true;
+    }
+
 }
 

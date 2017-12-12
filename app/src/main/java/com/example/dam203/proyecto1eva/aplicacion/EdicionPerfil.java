@@ -38,6 +38,7 @@ public class EdicionPerfil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edicion_perfil);
+        this.setTitle(R.string.editar_perfil);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         usr = (Usuario) getIntent().getExtras().getSerializable(MainActivity.KEY_USUARIO);
         this.usrDAO = new UsuarioDAOSQLite(this);

@@ -24,7 +24,6 @@
                 android:layout_span="2"
                 android:hint="@string/opcional"
                 android:imeOptions="actionDone"
-                android:textColorHint="@color/white"
                 style="@style/elementoTabla"/>
         </TableRow>
 
@@ -57,14 +56,13 @@
                 android:imeOptions="actionNext"
                 android:inputType="numberDecimal"
                 android:text="0"
-                android:textColor="@color/white"
                 style="@style/elementoTabla"
               />
 
             <TextView
                 android:text="@string/moneda"
                 style="@style/elementoTabla"
-                android:textColor="@color/white"/>
+                />
 
         </TableRow>
 
@@ -72,6 +70,7 @@
 
             <TextView
                 android:text="@string/precio_max"
+                style="@style/elementoTabla"
                 android:drawableRight="@drawable/money_icon"/>
 
             <EditText
@@ -79,11 +78,9 @@
                 android:imeOptions="actionDone"
                 android:inputType="numberDecimal"
                 android:text="25000"
-                android:textColor="@color/white"
                 style="@style/elementoTabla"/>
 
             <TextView android:text="@string/moneda"
-                android:textColor="@color/white"
                 style="@style/elementoTabla"/>
         </TableRow>
     </TableLayout>

@@ -28,7 +28,7 @@ public class LoginDialogo extends DialogFragment {
                         //Toast.makeText(getActivity(), "PULSADA OPCION BOA", Toast.LENGTH_LONG).show();
                     }
                 });
-        this.setStyle(DialogFragment.STYLE_NORMAL, R.style.Tema_Principal);
+        this.setStyle(DialogFragment.STYLE_NORMAL, R.style.AppTheme);
         this.setCancelable(false);
         return builder.create();
     }

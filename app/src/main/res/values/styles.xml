@@ -3,25 +3,13 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:fontFamily">sans-serif-condensed</item>
+
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="Tema_Principal" parent="AppTheme">
-        <item name="android:colorBackground">@color/acqua</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:actionBarStyle">@style/MyActionBar</item>
-    </style>
-
-    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">@color/acqua</item>
-    </style>
-
-    <style name="Tema_Principal.NoActionBar" parent="Tema_Principal">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
 
     <style name="Busqueda_landscape">
         <item name="android:background">@color/dimgray</item>
@@ -41,6 +29,9 @@
     </style>
 
     <style name="elementoTabla">
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:layout_margin">@dimen/margin_tabla</item>
     </style>
 

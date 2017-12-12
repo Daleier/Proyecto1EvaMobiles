@@ -26,7 +26,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".aplicacion.MainActivity"
-            android:theme="@style/Tema_Principal.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -39,7 +39,7 @@
         <activity
             android:name=".aplicacion.BCNavigationDrawer"
             android:label="@string/title_activity_main"
-            android:theme="@style/Tema_Principal.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".aplicacion.Camara" />
 
         <provider
