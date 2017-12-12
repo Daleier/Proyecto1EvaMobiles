@@ -8,6 +8,6 @@
     tools:context="com.example.dam203.proyecto1eva.aplicacion.BCNavigationDrawer"
     tools:showIn="@layout/app_bar_main">
 
-    <!-- <include layout="@layout/activity_buscar_componentes"/> -->
+    <include layout="@layout/activity_buscar_componentes"/>
 
 </android.support.constraint.ConstraintLayout>

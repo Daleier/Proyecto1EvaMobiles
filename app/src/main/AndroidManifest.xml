@@ -25,12 +25,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".aplicacion.MainActivity"
-            android:theme="@style/pantalla_inicio">
+        <activity android:name=".aplicacion.MainActivity"
+            android:theme="@style/Tema_Principal.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -41,7 +39,7 @@
         <activity
             android:name=".aplicacion.BCNavigationDrawer"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/Tema_Principal.NoActionBar"/>
         <activity android:name=".aplicacion.Camara" />
 
         <provider

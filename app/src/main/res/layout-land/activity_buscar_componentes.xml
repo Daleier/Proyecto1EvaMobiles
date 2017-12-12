@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dimgray"
+    style="@style/Busqueda_landscape"
     >
 
     <TableLayout
@@ -72,7 +72,7 @@
 
             <TextView
                 android:text="@string/precio_max"
-                style="@style/elementoTabla_icono"/>
+                android:drawableRight="@drawable/money_icon"/>
 
             <EditText
                 android:id="@+id/precio_max"

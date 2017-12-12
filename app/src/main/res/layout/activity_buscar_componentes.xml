@@ -3,6 +3,7 @@
    android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,8 +69,7 @@
         <TableRow style="@style/filasTabla">
 
             <TextView
-                android:text="@string/precio_max"
-                style="@style/elementoTabla_icono"/>
+                android:text="@string/precio_max" />
 
             <EditText
                 android:id="@+id/precio_max"

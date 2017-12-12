@@ -8,21 +8,23 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="pantalla_inicio" parent="AppTheme">
-        <item name="android:colorBackground">@color/grisFondo</item>
-    </style>
-
-    <style name="formulario">
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:background">@drawable/wall_background</item>
-    </style>
-
-    <style name="fuente">
+    <style name="Tema_Principal" parent="AppTheme">
+        <item name="android:colorBackground">@color/acqua</item>
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textColor">@color/fuenteNaranja</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColorHint">@color/fuenteNaranja</item>
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/acqua</item>
+    </style>
+
+    <style name="Tema_Principal.NoActionBar" parent="Tema_Principal">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Busqueda_landscape">
+        <item name="android:background">@color/dimgray</item>
     </style>
 
     <style name="tabla">
@@ -38,12 +40,8 @@
         <item name="android:background">@color/materialgray</item>
     </style>
 
-    <style name="elementoTabla" parent="fuente">
+    <style name="elementoTabla">
         <item name="android:layout_margin">@dimen/margin_tabla</item>
-    </style>
-
-    <style name="elementoTabla_icono" parent="elementoTabla">
-        <item name="android:drawableRight">@drawable/money_icon</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
